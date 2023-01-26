@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const API_URL = "http://localhost:5005";
 
 const AuthContext = React.createContext();
 
@@ -16,7 +15,7 @@ function AuthProviderWrapper(props) {
 
   const authenticateUser = () => {
     const storedToken = localStorage.getItem('authToken')
-    if (storeToken){
+    if (storedToken){
         axios.get(`${process.env.REACT_APP_API_URL}/auth/verify`,{headers:{Authorization: `Bearer ${storedToken}`}})
             .then((res)=>{
                 const user = res.data
@@ -48,6 +47,7 @@ function AuthProviderWrapper(props) {
 
   useEffect(()=>{
     authenticateUser()
+    // eslint-disable-next-line
   },[])
 
   return (
