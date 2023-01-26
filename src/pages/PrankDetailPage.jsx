@@ -4,12 +4,11 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function PrankDetailPage() {
-  const { prank, setPrank } = useState(null);
-
+  const [prank, setPrank]  = useState(null);
+  
   const {title,time,place,description,prankee,comments,steps} = prank
 
   const { prankId } = useParams();
-
 
   const getPrank = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -18,7 +17,7 @@ function PrankDetailPage() {
 
 
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/projects/${prankId}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/pranks/${prankId}`)
       .then((res) => setPrank(res.data))
       .catch((err) => console.error(err));
   };
@@ -35,6 +34,7 @@ function PrankDetailPage() {
 
     {prank && (
         <>
+  
         <h1>{title}</h1>
       <p>
         On {time} at {place}

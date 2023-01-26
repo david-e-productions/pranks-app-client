@@ -10,8 +10,9 @@ function PrankListPage() {
 
 
   const getAllPranks = () => {
-    axios.get(`${process.env.REACT_APP_API_URL}`)
-      .then((res)=>setPranks(res.data))
+    axios.get(`${process.env.REACT_APP_API_URL}/api/pranks`)
+      .then((res)=>{
+        setPranks(res.data)})
       .catch((err)=>console.error(err))
   }
 
