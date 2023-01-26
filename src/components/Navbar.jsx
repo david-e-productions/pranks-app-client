@@ -16,7 +16,7 @@ function Navbar() {
         <>
         <Link to='/mypranks'>
         <button>My Pranks</button>
-
+        
         </Link>
           <button onClick={logOutUser}>Logout</button>{" "}
         </>
