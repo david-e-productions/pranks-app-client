@@ -1,3 +1,4 @@
+
 import './App.css';
 import Navbar from './components/Navbar';
 import {Route,Routes} from 'react-router-dom'
@@ -8,9 +9,11 @@ import PranksPage from './pages/PrankListPage';
 import PrankDetailPage from './pages/PrankDetailPage';
 import MyPranksPage from './pages/MyPranksPage';
 
+
 function App() {
   return (
     <div className="App">
+
       <Navbar/>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
@@ -20,6 +23,7 @@ function App() {
         <Route path='/pranks/:id' element={<PrankDetailPage/>}/>
         <Route path='/mypranks' element={<MyPranksPage/>}/>
       </Routes>
+
     </div>
   );
 }
