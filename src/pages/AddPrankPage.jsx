@@ -1,16 +1,25 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
-function EventForm() {
+function AddPrankPage() {
   const [title, setTitle] = useState("");
   const [time, setTime] = useState("");
   const [place, setPlace] = useState("");
   const [prankee, setPrankee] = useState("");
   const [description, setDescription] = useState("");
 
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(title, time, place, prankee, description);
     // handle form submission here
+    const reqBody = {title, time, place, prankee, description}
+
+    axios.post(`${process.env.REACT_APP_API_URL}/api/createprank`,reqBody)
+    .then((res)=>{navigate(`/pranks/${res.data._id}`)})
+
   };
 
   return (
@@ -64,7 +73,7 @@ function EventForm() {
   );
 }
 
-export default EventForm;
+export default AddPrankPage;
 
 
 // import { useEffect } from "react";
