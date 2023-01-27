@@ -1,25 +1,44 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import { AuthContext } from "../context/auth.context";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import axios from "axios";
 
 // TO DO:
 // add the API call to add a step
 // add the username to the form so we know which user commented
-// 
+//
 
 function StepCard(prop) {
   const { title, description, isDone, comments, _id } = prop.element;
-  const [stepComment, setStepComment] = useState(null);
+  const [stepComment, setStepComment] = useState("");
   const [open, setOpen] = useState(false);
 
+  const { user } = useContext(AuthContext);
+  const storedToken = localStorage.getItem("authToken");
 
-  const handleStepCommentSubmit = () => {
+
+
+
+  const handleStepCommentSubmit = (e) => {
+    e.preventDefault();
+  const userId = user._id;
+
     // req.body
+    const reqBody = { stepComment, userId, _id };
     // here goes the axios request to the api to comment it
+    axios.post(
+      `${process.env.REACT_APP_API_URL}/api/commentstep`,
+      { description: stepComment, userId: userId, stepId: _id },
+      { headers: { Authorization: `Bearer ${storedToken}` } }
+    )
+    .then(()=>{
+        setStepComment("")
+        prop.refreshPrank()
+    })
+    
+    
   };
 
   return (
@@ -39,10 +58,11 @@ function StepCard(prop) {
       </Button>
       <Collapse in={open}>
         <div id="comment-section" style={{ border: "dashed" }}>
+        {/* COMMENTS POPULATED */}
           {comments.map((comment) => {
             return (
               <div>
-                <h3>Placeholder:Username of Commenter</h3>
+                <h3>{comment}</h3>
                 <p>{comment}</p>
               </div>
             );
@@ -58,8 +78,6 @@ function StepCard(prop) {
           </form>
         </div>
       </Collapse>
-
-     
     </div>
   );
 }

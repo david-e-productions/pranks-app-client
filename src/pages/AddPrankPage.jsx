@@ -16,11 +16,14 @@ function AddPrankPage() {
 
   const navigate = useNavigate()
 
+  const storedToken = localStorage.getItem("authToken");
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const reqBody = {title, time, place, prankee, description}
 
-    axios.post(`${process.env.REACT_APP_API_URL}/api/createprank`,reqBody)
+    axios.post(`${process.env.REACT_APP_API_URL}/api/prank`,reqBody,{ headers: { Authorization: `Bearer ${storedToken}` } })
     .then((res)=>{navigate(`/pranks/${res.data._id}`)})
 
   };

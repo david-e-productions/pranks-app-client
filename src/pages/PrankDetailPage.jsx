@@ -1,12 +1,11 @@
 import axios from "axios";
 import StepCard from "../components/StepCard";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import { AuthContext } from "../context/auth.context";
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate } from "react-router-dom";
 
 // TO DO here:
 // write the submit-function for the comment and connect it to the api endpoint
@@ -15,42 +14,58 @@ import { useNavigate } from 'react-router-dom'
 function PrankDetailPage() {
   const [prank, setPrank] = useState("");
   const [prankComment, setPrankComment] = useState("");
+  const [prankCommentOwner, setPrankCommentOwner] = useState("");
+  // const [user,setUser] = useState()
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
+  // setUser(useContext(AuthContext))
 
+  const storedToken = localStorage.getItem("authToken");
 
   const { prankId } = useParams();
 
   const getPrank = () => {
-    const storedToken = localStorage.getItem("authToken");
-
-    // All API REQS NEED AUTH FOR API
-
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/pranks/${prankId}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/prank/${prankId}`)
       .then((res) => setPrank(res.data))
       .catch((err) => console.error(err));
   };
 
-  const handlePrankCommentSubmit = () => {
-    // req.body
-    // here goes the axios request to the api to comment it
+  const handlePrankCommentSubmit = (e) => {
+    e.preventDefault();
+    const userId = user._id;
+
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/api/commentprank`,
+        { description: prankComment, user: userId, prankId: prankId },
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+      .then(() => {
+        setPrankComment("");
+        setPrankCommentOwner("");
+        getPrank();
+      });
   };
 
   useEffect(() => {
     getPrank();
+
     // eslint-disable-next-line
   }, [prankId]);
 
   return (
     <>
       <div>
-      <button onClick={() => {
-    navigate(`/pranks/${prank._id}/edit`)
-}}>
-    Edit
-</button>
+        <button
+          onClick={() => {
+            navigate(`/pranks/${prank._id}/edit`);
+          }}
+        >
+          Edit
+        </button>
         {prank && (
           <>
             <h1>{prank.title}</h1>
@@ -77,8 +92,8 @@ function PrankDetailPage() {
                   {prank.comments.map((comment) => {
                     return (
                       <div>
-                        <h3>Placeholder:Username of Commenter</h3>
-                        <p>{comment}</p>
+                        <h3>{comment.user}</h3>
+                        <p>{comment.description}</p>
                       </div>
                     );
                   })}
@@ -88,6 +103,11 @@ function PrankDetailPage() {
                       value={prankComment}
                       onChange={(e) => setPrankComment(e.target.value)}
                     ></input>
+                    <input
+                      type="hidden"
+                      value={prankCommentOwner}
+                      onChange={(e) => setPrankCommentOwner(e.target.value)}
+                    ></input>
                     <button type="submit">Comment</button>
                   </form>
                 </div>
@@ -96,7 +116,13 @@ function PrankDetailPage() {
 
             <div>
               {prank.steps.map((step) => {
-                return <StepCard key={step._id} element={step} />;
+                return (
+                  <StepCard
+                    key={step._id}
+                    element={step}
+                    refreshPrank={getPrank}
+                  />
+                );
               })}
             </div>
           </>
