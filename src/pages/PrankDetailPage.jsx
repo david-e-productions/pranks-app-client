@@ -1,11 +1,19 @@
 import axios from "axios";
-import StepCard from "../components/StepsCard";
+import StepCard from "../components/StepCard";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import Collapse from "react-bootstrap/Collapse";
+import { AuthContext } from "../context/auth.context";
+
+// TO DO here:
+// write the submit-function for the comment and connect it to the api endpoint
+// add the username to the form so we know which user commented
 
 function PrankDetailPage() {
-  const [prank, setPrank] = useState(null);
-  const [prankComment, setPrankComment] = useState(null);
+  const [prank, setPrank] = useState("");
+  const [prankComment, setPrankComment] = useState("");
+  const [open, setOpen] = useState(false);
 
   const { prankId } = useParams();
 
@@ -21,7 +29,7 @@ function PrankDetailPage() {
   };
 
   const handlePrankCommentSubmit = () => {
-
+    // req.body
     // here goes the axios request to the api to comment it
   };
 
@@ -41,26 +49,48 @@ function PrankDetailPage() {
             </p>
             <p>{prank.description}</p>
             <p>{prank.prankee}</p>
-            {prank.comments.map((comment) => {
-              return (
-                <div>
-                  <p>{comment}</p>
+
+            <>
+              <Button
+                onClick={() => setOpen(!open)}
+                aria-controls="comment-section"
+                aria-expanded={open}
+              >
+                {prank.comments.length === 0 && <p>Write a comment</p>}
+                {prank.comments.length === 1 && <p>One comment</p>}
+                {prank.comments.length > 1 && (
+                  <p>{prank.comments.length} comments</p>
+                )}
+              </Button>
+              <Collapse in={open}>
+                <div id="comment-section">
+                  {prank.comments.map((comment) => {
+                    return (
+                      <div>
+                        <h3>Placeholder:Username of Commenter</h3>
+                        <p>{comment}</p>
+                      </div>
+                    );
+                  })}
+                  <form onSubmit={handlePrankCommentSubmit}>
+                    <input
+                      type="text"
+                      value={prankComment}
+                      onChange={(e) => setPrankComment(e.target.value)}
+                    ></input>
+                    <button type="submit">Comment</button>
+                  </form>
                 </div>
-              );
-            })}
-            {prank.steps.map((step) => {
-              return <StepCard elment={step} />;
-            })}
+              </Collapse>
+            </>
+
+            <div>
+              {prank.steps.map((step) => {
+                return <StepCard element={step} />;
+              })}
+            </div>
           </>
         )}
-      </div>
-      <div>
-        <h3>Add a comment</h3>
-
-        <form onSubmit={handlePrankCommentSubmit}>
-            <input type='text' value={prankComment} onChange={e=>setPrankComment(e.target.value)}></input>
-            <button type='submit'>Comment</button>
-        </form>
       </div>
     </>
   );

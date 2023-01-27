@@ -9,6 +9,8 @@ import PranksPage from './pages/PrankListPage';
 import PrankDetailPage from './pages/PrankDetailPage';
 import MyPranksPage from './pages/MyPranksPage';
 import AddPrankPage from './pages/AddPrankPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function App() {
