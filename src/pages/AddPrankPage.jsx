@@ -1,6 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../context/auth.context";
+
+
+// TO DO:
+// Add the user via AuthContext to the form so we can know which user added the prank
 
 function AddPrankPage() {
   const [title, setTitle] = useState("");
@@ -13,8 +18,6 @@ function AddPrankPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title, time, place, prankee, description);
-    // handle form submission here
     const reqBody = {title, time, place, prankee, description}
 
     axios.post(`${process.env.REACT_APP_API_URL}/api/createprank`,reqBody)
@@ -74,24 +77,3 @@ function AddPrankPage() {
 }
 
 export default AddPrankPage;
-
-
-// import { useEffect } from "react";
-
-// function AddPrankPage() {
-//     const [title,setTitle] = useEffect()
-
-//   return (
-//     <>
-//       <h1>Add a Prank</h1>
-//       <form>
-//         <label>Title</label>
-//         <input type='text' name='title' value={title}></input>
-//         <label>Time</label>
-//         <input type='date' name='date' value={date}></input>
-//       </form>
-//     </>
-//   );
-// }
-
-// export default AddPrankPage;

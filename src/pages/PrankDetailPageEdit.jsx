@@ -5,22 +5,21 @@ import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import { AuthContext } from "../context/auth.context";
-import { useNavigate } from 'react-router-dom'
-
+import EditStepCard from "../components/EditStepCard";
 
 // TO DO here:
 // write the submit-function for the comment and connect it to the api endpoint
 // add the username to the form so we know which user commented
 
-function PrankDetailPage() {
+function PrankDetailPageEdit() {
   const [prank, setPrank] = useState("");
   const [prankComment, setPrankComment] = useState("");
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate()
-
 
 
   const { prankId } = useParams();
+  console.log(prankId)
+  console.log(prank)
 
   const getPrank = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -29,7 +28,9 @@ function PrankDetailPage() {
 
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/pranks/${prankId}`)
-      .then((res) => setPrank(res.data))
+      .then((res) => {
+        console.log(res)
+        setPrank(res.data)})
       .catch((err) => console.error(err));
   };
 
@@ -46,11 +47,6 @@ function PrankDetailPage() {
   return (
     <>
       <div>
-      <button onClick={() => {
-    navigate(`/pranks/${prank._id}/edit`)
-}}>
-    Edit
-</button>
         {prank && (
           <>
             <h1>{prank.title}</h1>
@@ -96,7 +92,7 @@ function PrankDetailPage() {
 
             <div>
               {prank.steps.map((step) => {
-                return <StepCard key={step._id} element={step} />;
+                return <EditStepCard key={step._id} element={step} />;
               })}
             </div>
           </>
@@ -106,4 +102,4 @@ function PrankDetailPage() {
   );
 }
 
-export default PrankDetailPage;
+export default PrankDetailPageEdit;
