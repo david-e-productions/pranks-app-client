@@ -38,7 +38,7 @@ function PrankDetailPageEdit() {
   }, [prankId]);
 
   return <>
-    <UpdatePrankForm/>
+    <UpdatePrankForm refreshPrank={getPrank}/>
   </>;
 }
 
