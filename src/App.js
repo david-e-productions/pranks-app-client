@@ -12,6 +12,7 @@ import AddPrankPage from './pages/AddPrankPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EditStepCard from './components/EditStepCard';
 import PrankDetailPageEdit from './pages/PrankDetailPageEdit';
+import AddStepForm from './components/AddStepForm';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/mypranks' element={<MyPranksPage/>}/>
         <Route path='/addprank' element={<AddPrankPage/>}/>
         <Route path='/pranks/:prankId/edit' element={<PrankDetailPageEdit/>} />
+        <Route path='/pranks/:prankId/addStep' element={<AddStepForm/>} />
 
       </Routes>
 

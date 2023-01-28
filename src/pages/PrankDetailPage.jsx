@@ -59,13 +59,7 @@ function PrankDetailPage() {
   return (
     <>
       <div>
-        <button
-          onClick={() => {
-            navigate(`/pranks/${prank._id}/edit`);
-          }}
-        >
-          Edit
-        </button>
+        
         {prank && (
           <>
             <h1>{prank.title}</h1>
@@ -74,7 +68,16 @@ function PrankDetailPage() {
             </p>
             <p>{prank.description}</p>
             <p>{prank.prankee}</p>
-
+            <button
+          onClick={() => {
+            navigate(`/pranks/${prank._id}/edit`);
+          }}
+        >
+          Edit
+        </button>
+        <button onClick={()=>{
+          navigate(`/pranks/${prank._id}/addstep`)
+        }}>Add Step</button>
             <>
               <Button
                 onClick={() => setOpen(!open)}
