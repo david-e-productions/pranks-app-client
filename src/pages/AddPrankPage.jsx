@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import React, { useState,useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
 
@@ -13,6 +13,8 @@ function AddPrankPage() {
   const [place, setPlace] = useState("");
   const [prankee, setPrankee] = useState("");
   const [description, setDescription] = useState("");
+  const { user } = useContext(AuthContext);
+
 
   const navigate = useNavigate()
 
@@ -21,10 +23,12 @@ function AddPrankPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const reqBody = {title, time, place, prankee, description}
+  const userId = user._id;
+
+    const reqBody = {title, time, place, prankee, description, userId}
 
     axios.post(`${process.env.REACT_APP_API_URL}/api/prank`,reqBody,{ headers: { Authorization: `Bearer ${storedToken}` } })
-    .then((res)=>{navigate(`/pranks/${res.data._id}`)})
+    .then((res)=>{navigate(`/pranks`)})
 
   };
 
