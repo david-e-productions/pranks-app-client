@@ -8,9 +8,21 @@ function EditStepCard(prop) {
   const [stepTemp, setStepTemp] = useState(prop.element);
   const navigate = useNavigate();
 
-  console.log(stepTemp.isDone)
 
-  const handleSubmit = (e) => {
+  const handleDeleteSubmit = (e) => {
+    e.preventDefault()
+    const stepId = prop.element._id;
+    const storedToken = localStorage.getItem("authToken");
+
+
+    axios.delete(`${process.env.REACT_APP_API_URL}/api/step/${stepId}`,{
+      headers: { Authorization: `Bearer ${storedToken}` },
+    })
+      .then(()=> prop.refreshPrank() )
+      .catch(err=>console.error(err))
+  }
+
+  const handleUpdateSubmit = (e) => {
     e.preventDefault();
     const stepId = prop.element._id;
     const storedToken = localStorage.getItem("authToken");
@@ -29,7 +41,8 @@ function EditStepCard(prop) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
+<form onSubmit={handleUpdateSubmit}>
       <label>Title</label>
       <input
         type="text"
@@ -46,13 +59,21 @@ function EditStepCard(prop) {
       <br />
 
       <label>Step done?</label>
-      <input type="checkbox" value={stepTemp.isDone} onChange={(e) => {
+      <input type="checkbox" checked={stepTemp.isDone} onChange={(e) => {
           setStepTemp({ ...stepTemp, isDone: e.target.checked });
         }}></input>
       <br />
 
       <button type="submit">Save changes</button>
     </form>
+    <form onSubmit={handleDeleteSubmit}>
+
+      <button type={'submit'}>Delete Step</button>
+    </form>
+
+    </>
+    
+    
   );
 }
 
