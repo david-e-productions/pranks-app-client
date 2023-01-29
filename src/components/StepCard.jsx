@@ -11,18 +11,15 @@ function StepCard(prop) {
   const [open, setOpen] = useState(false);
   const [editMode, setEditMode] = useState(false);
 
-
-
-
-  const prankOwner = prop.prank.userId
-  console.log(prankOwner)
+  const prankOwner = prop.prank.userId;
+  console.log(prankOwner);
 
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
 
-  const toggleEditMode = () =>{
-    setEditMode(!editMode)
-  }
+  const toggleEditMode = () => {
+    setEditMode(!editMode);
+  };
 
   const handleStepCommentSubmit = (e) => {
     e.preventDefault();
@@ -48,11 +45,11 @@ function StepCard(prop) {
           <p>{description}</p>
           {isDone && <p>Step completed:✅</p>}
           {!isDone && <p>Step completed:❌</p>}
-          {(user === prankOwner) && (<>
-            <button onClick={() => setEditMode(!editMode)}>Edit</button>
-
-
-          </>)}
+          {user._id === prankOwner && (
+            <>
+              <button onClick={() => setEditMode(!editMode)}>Edit</button>
+            </>
+          )}
           <Button
             onClick={() => setOpen(!open)}
             aria-controls="comment-section"
@@ -88,7 +85,11 @@ function StepCard(prop) {
       )}
       {editMode && (
         <>
-          <EditStepCard element={prop.element} toggleEditMode={toggleEditMode} refreshPrank={prop.refreshPrank}/>
+          <EditStepCard
+            element={prop.element}
+            toggleEditMode={toggleEditMode}
+            refreshPrank={prop.refreshPrank}
+          />
         </>
       )}
     </div>
