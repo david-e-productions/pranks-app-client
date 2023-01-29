@@ -35,7 +35,7 @@ function EditStepCard(prop) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((res) => {
-        prop.function();
+        prop.toggleEditMode();
         prop.refreshPrank();
       });
   };

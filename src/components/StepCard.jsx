@@ -80,7 +80,7 @@ function StepCard(prop) {
       )}
       {editMode && (
         <>
-          <EditStepCard element={prop.element} function={toggleEditMode} refreshPrank={prop.refreshPrank}/>
+          <EditStepCard element={prop.element} toggleEditMode={toggleEditMode} refreshPrank={prop.refreshPrank}/>
         </>
       )}
     </div>
