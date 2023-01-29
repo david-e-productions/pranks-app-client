@@ -1,6 +1,8 @@
 import { useState } from "react";
 import EditPrankCard from "./EditPrankCard";
 import AddStepForm from "./AddStepForm";
+import CommentSection from "../components/CommentSection";
+
 
 function PrankCard(props) {
   const [editMode, setEditMode] = useState(false);
@@ -40,6 +42,8 @@ function PrankCard(props) {
           >
             Add Step
           </button>
+          <CommentSection prank={element} refreshPrank={refreshPrank}/>
+
         </>
       )}
 

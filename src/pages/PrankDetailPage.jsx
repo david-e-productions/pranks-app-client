@@ -9,12 +9,8 @@ import PrankCard from "../components/PrankCard";
 
 function PrankDetailPage() {
   const [prank, setPrank] = useState("");
-  const [prankComment, setPrankComment] = useState("");
-  const [prankCommentOwner, setPrankCommentOwner] = useState("");
-  const [open, setOpen] = useState(false);
-  const { user } = useContext(AuthContext);
 
-  const storedToken = localStorage.getItem("authToken");
+
 
   const { prankId } = useParams();
 
@@ -25,22 +21,7 @@ function PrankDetailPage() {
       .catch((err) => console.error(err));
   };
 
-  const handlePrankCommentSubmit = (e) => {
-    e.preventDefault();
-    const userId = user._id;
 
-    axios
-      .post(
-        `${process.env.REACT_APP_API_URL}/api/commentprank`,
-        { description: prankComment, user: userId, prankId: prankId },
-        { headers: { Authorization: `Bearer ${storedToken}` } }
-      )
-      .then(() => {
-        setPrankComment("");
-        setPrankCommentOwner("");
-        getPrank();
-      });
-  };
 
   useEffect(() => {
     getPrank();
@@ -58,44 +39,7 @@ function PrankDetailPage() {
               element={prank}
               refreshPrank={getPrank}
             />
-            <>
-              <Button
-                onClick={() => setOpen(!open)}
-                aria-controls="comment-section"
-                aria-expanded={open}
-              >
-                {prank.comments.length === 0 && <p>Write a comment</p>}
-                {prank.comments.length === 1 && <p>One comment</p>}
-                {prank.comments.length > 1 && (
-                  <p>{prank.comments.length} comments</p>
-                )}
-              </Button>
-              <Collapse in={open}>
-                <div id="comment-section">
-                  {prank.comments.map((comment) => {
-                    return (
-                      <div>
-                        <h3>{comment.user}</h3>
-                        <p>{comment.description}</p>
-                      </div>
-                    );
-                  })}
-                  <form onSubmit={handlePrankCommentSubmit}>
-                    <input
-                      type="text"
-                      value={prankComment}
-                      onChange={(e) => setPrankComment(e.target.value)}
-                    ></input>
-                    <input
-                      type="hidden"
-                      value={prankCommentOwner}
-                      onChange={(e) => setPrankCommentOwner(e.target.value)}
-                    ></input>
-                    <button type="submit">Comment</button>
-                  </form>
-                </div>
-              </Collapse>
-            </>
+           
 
             <div>
               {prank.steps.map((step) => {
