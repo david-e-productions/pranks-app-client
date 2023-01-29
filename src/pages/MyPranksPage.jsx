@@ -16,7 +16,6 @@ function MyPranksPage() {
           { headers: { Authorization: `Bearer ${storedToken}` } }
         );
         setPranks(response.data);
-        console.log(pranks);
       } catch (error) {
         console.error(error);
       }
@@ -24,6 +23,7 @@ function MyPranksPage() {
     if (user) {
       getData();
     }
+    // eslint-disable-next-line
   }, [user]);
 
   return (

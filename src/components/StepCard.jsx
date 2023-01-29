@@ -1,8 +1,7 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import { AuthContext } from "../context/auth.context";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
 import EditStepCard from "./EditStepCard";
 

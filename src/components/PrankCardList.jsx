@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 function PrankCardList(props) {
   const { title, description, _id } = props;
-console.log('PrankCardListProps',props)
   return (
     <div className="PrankCard">
       <Link to={`/pranks/${_id}`}>

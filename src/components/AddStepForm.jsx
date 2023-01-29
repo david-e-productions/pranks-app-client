@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function AddStepForm(props) {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
-  const navigate = useNavigate();
   const { prankId } = useParams();
 
   const storedToken = localStorage.getItem("authToken");
@@ -18,9 +17,9 @@ function AddStepForm(props) {
       .post(`${process.env.REACT_APP_API_URL}/api/step`, reqBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((res) => {
+      .then(() => {
         props.refreshPrank();
-        navigate(`/pranks/${res.data._id}`);
+        props.toggleAddStepMode()
       });
   };
 

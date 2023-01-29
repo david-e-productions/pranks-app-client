@@ -1,12 +1,8 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import axios from "axios";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 function EditStepCard(prop) {
-  const [step, setStep] = useState(prop.element);
   const [stepTemp, setStepTemp] = useState(prop.element);
-  const navigate = useNavigate();
 
 
   const handleDeleteSubmit = (e) => {

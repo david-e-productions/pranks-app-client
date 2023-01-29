@@ -5,23 +5,14 @@ import { useEffect, useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import { AuthContext } from "../context/auth.context";
-import { useNavigate } from "react-router-dom";
 import PrankCard from "../components/PrankCard";
-
-// TO DO here:
-// write the submit-function for the comment and connect it to the api endpoint
-// add the username to the form so we know which user commented
 
 function PrankDetailPage() {
   const [prank, setPrank] = useState("");
   const [prankComment, setPrankComment] = useState("");
   const [prankCommentOwner, setPrankCommentOwner] = useState("");
-  // const [user,setUser] = useState()
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-
-  // setUser(useContext(AuthContext))
 
   const storedToken = localStorage.getItem("authToken");
 
@@ -60,10 +51,13 @@ function PrankDetailPage() {
   return (
     <>
       <div>
-        
         {prank && (
           <>
-           <PrankCard key={prank._id} element={ prank } refreshPrank={getPrank}/>
+            <PrankCard
+              key={prank._id}
+              element={prank}
+              refreshPrank={getPrank}
+            />
             <>
               <Button
                 onClick={() => setOpen(!open)}
