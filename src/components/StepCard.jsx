@@ -12,6 +12,11 @@ function StepCard(prop) {
   const [editMode, setEditMode] = useState(false);
 
 
+
+
+  const prankOwner = prop.prank.userId
+  console.log(prankOwner)
+
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
 
@@ -43,7 +48,11 @@ function StepCard(prop) {
           <p>{description}</p>
           {isDone && <p>Step completed:✅</p>}
           {!isDone && <p>Step completed:❌</p>}
-          <button onClick={() => setEditMode(!editMode)}>Edit</button>
+          {(user === prankOwner) && (<>
+            <button onClick={() => setEditMode(!editMode)}>Edit</button>
+
+
+          </>)}
           <Button
             onClick={() => setOpen(!open)}
             aria-controls="comment-section"

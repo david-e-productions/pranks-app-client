@@ -4,12 +4,11 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
-import { AuthContext } from "../context/auth.context";
 import PrankCard from "../components/PrankCard";
+
 
 function PrankDetailPage() {
   const [prank, setPrank] = useState("");
-
 
 
   const { prankId } = useParams();
@@ -38,6 +37,7 @@ function PrankDetailPage() {
               key={prank._id}
               element={prank}
               refreshPrank={getPrank}
+              
             />
            
 
@@ -48,6 +48,7 @@ function PrankDetailPage() {
                     key={step._id}
                     element={step}
                     refreshPrank={getPrank}
+                    prank={prank}
                   />
                 );
               })}
