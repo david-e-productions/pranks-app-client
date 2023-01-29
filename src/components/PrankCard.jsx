@@ -1,10 +1,13 @@
 
 import { useState, useContext, useEffect } from "react";
 import EditPrankCard from "./EditPrankCard";
+import AddStepForm from "./AddStepForm";
+
 
 
 function PrankCard (props) {
     const [editMode, setEditMode] = useState(false);
+    const [addStepMode,setAddStepMode] = useState(false)
     
     const {element,refreshPrank} = props
     const {title,time,place,description,prankee} = element
@@ -18,7 +21,7 @@ function PrankCard (props) {
 
     return (
         <>
-        {!editMode && (
+        {(!editMode && !addStepMode) && (
             <>
             <h1>{title}</h1>
             <p>
@@ -33,11 +36,17 @@ toggleEditMode()          }}
           Edit
         </button>
         <button onClick={()=>{
-        // the PrankCard should switch to <AddStepForm>
+            setAddStepMode(!addStepMode)
         }}>Add Step</button>
         </>
 
         )}
+
+        {addStepMode && (
+            <>
+<AddStepForm refreshPrank={refreshPrank}/>
+            </>
+        ) }
 
         {editMode && (<>
             <EditPrankCard toggleEditMode={toggleEditMode} refreshPrank={refreshPrank}/>
