@@ -3,21 +3,17 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../context/auth.context";
 
-function UpdatePrankForm() {
+function EditPrankCard(props) {
   const [prank, setPrank] = useState("");
   const [tempPrank, setTempPrank] = useState();
-
-  // const [title, setTitle] = useState(prank.title);
-  // const [time, setTime] = useState("");
-  // const [place, setPlace] = useState(prank.place);
-  // const [prankee, setPrankee] = useState(prank.prankee);
-  // const [description, setDescription] = useState(prank.description)
 
   const prankId = useParams();
 
   const navigate = useNavigate();
 
   const storedToken = localStorage.getItem("authToken");
+
+  console.log('props.toggleEditMode',props.toggleEditMode)
 
   const getPrank = () => {
     axios
@@ -48,7 +44,8 @@ function UpdatePrankForm() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((res) => {
-        navigate(`/pranks/${res.data._id}`);
+        props.toggleEditMode()
+        props.refreshPrank()
       });
   };
 
@@ -117,4 +114,4 @@ function UpdatePrankForm() {
   );
 }
 
-export default UpdatePrankForm;
+export default EditPrankCard;

@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
+import PrankCard from "../components/PrankCard";
 
 // TO DO here:
 // write the submit-function for the comment and connect it to the api endpoint
@@ -62,22 +63,7 @@ function PrankDetailPage() {
         
         {prank && (
           <>
-            <h1>{prank.title}</h1>
-            <p>
-              On {prank.time} at {prank.place}
-            </p>
-            <p>{prank.description}</p>
-            <p>{prank.prankee}</p>
-            <button
-          onClick={() => {
-            navigate(`/pranks/${prank._id}/edit`);
-          }}
-        >
-          Edit
-        </button>
-        <button onClick={()=>{
-          navigate(`/pranks/${prank._id}/addstep`)
-        }}>Add Step</button>
+           <PrankCard key={prank._id} element={ prank } refreshPrank={getPrank}/>
             <>
               <Button
                 onClick={() => setOpen(!open)}
