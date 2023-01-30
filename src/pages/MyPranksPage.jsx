@@ -32,7 +32,7 @@ function MyPranksPage() {
         pranks.map((prank) => {
           return (
             <div>
-              <PrankCardList {...prank} />
+              <PrankCardList key={prank._id} {...prank} />
             </div>
           );
         })}

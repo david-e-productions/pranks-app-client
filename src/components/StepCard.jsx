@@ -4,12 +4,14 @@ import Collapse from "react-bootstrap/Collapse";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import EditStepCard from "./EditStepCard";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 function StepCard(prop) {
   const { title, description, isDone, comments, _id } = prop.element;
   const [stepComment, setStepComment] = useState("");
   const [open, setOpen] = useState(false);
   const [editMode, setEditMode] = useState(false);
+
 
   const prankOwner = prop.prank.userId;
   console.log(prankOwner);
@@ -39,32 +41,31 @@ function StepCard(prop) {
   };
 
   return (
-    <div style={{ border: "solid" }}>
+    <div >
       {!editMode && (
         <>
-          <h3>{title}</h3>
-          <p>{description}</p>
-          {isDone && <p>Step completed:✅</p>}
-          {!isDone && <p>Step completed:❌</p>}
+          <h1 className={'m-0 typo-border'}>{prop.index+1}.{title}</h1>
+          <p className={'m-0 typo-border'}>{description}</p>
+          {isDone && <p className={'m-0'}>Step completed:✅</p>}
+          {!isDone && <p className={'m-0'}>Step completed:❌</p>}
           {user._id === prankOwner && (
             <>
-              <button onClick={() => setEditMode(!editMode)}>Edit</button>
+              <button style={{color:'black',backgroundColor:'#ED64B6', padding:'3px', border:'none', padding:0}} onClick={() => setEditMode(!editMode)}>Edit</button>
             </>
           )}
           <Button
             onClick={() => setOpen(!open)}
             aria-controls="comment-section"
             aria-expanded={open}
+            style={{color:'black',backgroundColor:'#ED64B6', padding:'3px'}}
           >
-            {comments.length === 0 && <p>Write a comment</p>}
-            {comments.length === 1 && <p>One comment</p>}
-            {comments.length > 1 && <p>{comments.length} comments</p>}
+            {comments.length === 0 && <p className={'m-0'}>Write a comment</p>}
+            {comments.length === 1 && <p className={'m-0'}>One Comment</p>}
+            {comments.length > 1 && <p className={'m-0'}>{comments.length} Comments</p>}
           </Button>
           <Collapse in={open}>
-            <div id="comment-section" style={{ border: "dashed" }}>
-              {/* COMMENTS POPULATED */}
+            <div id="comment-section" >
               {comments.map((comment) => {
-                {/* console.log('comment',comment.user) */}
                 return (
                   <div>
                     <h3>{comment.user.name}</h3>
