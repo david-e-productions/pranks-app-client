@@ -1,10 +1,9 @@
 import axios from "axios";
 import StepCard from "../components/StepCard";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
-import Button from "react-bootstrap/Button";
-import Collapse from "react-bootstrap/Collapse";
+import { useEffect, useState } from "react";
 import PrankCard from "../components/PrankCard";
+
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
 
 function PrankDetailPage() {
@@ -30,6 +29,7 @@ function PrankDetailPage() {
       <Container fluid>
         {prank && (
           <>
+
             <Row fluid className={"p-0"}>
               <Col fluid md={6} className={'lightblue-bg pink-font'}>
                 <PrankCard
