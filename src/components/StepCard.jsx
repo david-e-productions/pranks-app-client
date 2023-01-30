@@ -23,12 +23,13 @@ function StepCard(prop) {
 
   const handleStepCommentSubmit = (e) => {
     e.preventDefault();
+
     const userId = user._id;
 
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/api/commentstep`,
-        { description: stepComment, userId: userId, stepId: _id },
+        { description: stepComment, user: userId, stepId: _id },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then(() => {
@@ -63,10 +64,11 @@ function StepCard(prop) {
             <div id="comment-section" style={{ border: "dashed" }}>
               {/* COMMENTS POPULATED */}
               {comments.map((comment) => {
+                {/* console.log('comment',comment.user) */}
                 return (
                   <div>
-                    <h3>{comment}</h3>
-                    <p>{comment}</p>
+                    <h3>{comment.user.name}</h3>
+                    <p>{comment.description}</p>
                   </div>
                 );
               })}
