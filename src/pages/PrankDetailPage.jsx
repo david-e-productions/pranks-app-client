@@ -1,15 +1,11 @@
 import axios from "axios";
 import StepCard from "../components/StepCard";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
-import Button from "react-bootstrap/Button";
-import Collapse from "react-bootstrap/Collapse";
+import { useEffect, useState } from "react";
 import PrankCard from "../components/PrankCard";
-
 
 function PrankDetailPage() {
   const [prank, setPrank] = useState("");
-
 
   const { prankId } = useParams();
 
@@ -19,8 +15,6 @@ function PrankDetailPage() {
       .then((res) => setPrank(res.data))
       .catch((err) => console.error(err));
   };
-
-
 
   useEffect(() => {
     getPrank();
@@ -37,9 +31,7 @@ function PrankDetailPage() {
               key={prank._id}
               element={prank}
               refreshPrank={getPrank}
-              
             />
-           
 
             <div>
               {prank.steps.map((step) => {
