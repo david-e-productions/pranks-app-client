@@ -49,7 +49,7 @@ function CommentSection(props) {
           {comments.map((comment) => {
             return (
               <div>
-                <h3>{comment.user}</h3>
+                <h3>{comment.user.name}</h3>
                 <p>{comment.description}</p>
               </div>
             );
