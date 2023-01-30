@@ -1,5 +1,5 @@
 import axios from "axios";
-import PrankCard from "../components/PrankCard";
+import PrankCardList from "../components/PrankCardList";
 import {useState, useEffect} from 'react'
 
 function PrankListPage() {
@@ -25,7 +25,7 @@ function PrankListPage() {
       <h1>List of all Pranks</h1>
         {pranks.map((prank) => {
         return (
-            <PrankCard key={prank._id} {...prank}/>
+            <PrankCardList key={prank._id} {...prank}/>
         )
       })}
     </>

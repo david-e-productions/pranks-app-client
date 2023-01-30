@@ -1,34 +1,43 @@
 import axios from "axios";
-import { useEffect, useContext } from "react";
-import PrankCard from "../components/PrankCard";
+import { useEffect, useContext, useState } from "react";
+import PrankCardList from "../components/PrankCardList";
 import { AuthContext } from "../context/auth.context";
 
-
-// TO DO
-// get the user info from the context
-
 function MyPranksPage() {
-    const { user } = useContext(AuthContext);
-    console.log(user)
+  const { user } = useContext(AuthContext);
+  const storedToken = localStorage.getItem("authToken");
+  const [pranks, setPranks] = useState();
 
-//   const getMyPranks = () => {
-    
-//     // add user info to the reqBody
-//     axios.get(`${process.env.REACT_APP_API_URL}/api/mypranks`).then((res) =>
-//       res.map((prank) => {
-//         return <div>
-//             <PrankCard element={prank}/>
-//         </div>;
-//       })
-//     );
-//   };
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/mypranks/${user._id}`,
+          { headers: { Authorization: `Bearer ${storedToken}` } }
+        );
+        setPranks(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    if (user) {
+      getData();
+    }
+    // eslint-disable-next-line
+  }, [user]);
 
-//   useEffect(() => {
-//     getMyPranks();
-//     // eslint-disable-next-line
-//   }, [prankId]);
-
-  return (<h1>All my pranks, user: {user.email}</h1>)
+  return (
+    <>
+      {pranks &&
+        pranks.map((prank) => {
+          return (
+            <div>
+              <PrankCardList {...prank} />
+            </div>
+          );
+        })}
+    </>
+  );
 }
 
 export default MyPranksPage;
