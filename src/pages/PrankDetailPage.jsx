@@ -5,11 +5,10 @@ import { useEffect, useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import PrankCard from "../components/PrankCard";
-
+import { Container, Row, Col, ListGroup } from "react-bootstrap";
 
 function PrankDetailPage() {
   const [prank, setPrank] = useState("");
-
 
   const { prankId } = useParams();
 
@@ -20,8 +19,6 @@ function PrankDetailPage() {
       .catch((err) => console.error(err));
   };
 
-
-
   useEffect(() => {
     getPrank();
 
@@ -30,32 +27,41 @@ function PrankDetailPage() {
 
   return (
     <>
-      <div>
+      <Container fluid>
         {prank && (
           <>
-            <PrankCard
-              key={prank._id}
-              element={prank}
-              refreshPrank={getPrank}
-              
-            />
-           
+            <Row fluid className={"p-0"}>
+              <Col fluid md={6} className={'lightblue-bg pink-font'}>
+                <PrankCard
+                  key={prank._id}
+                  element={prank}
+                  refreshPrank={getPrank}
+                />
+              </Col>
 
-            <div>
-              {prank.steps.map((step) => {
-                return (
-                  <StepCard
-                    key={step._id}
-                    element={step}
-                    refreshPrank={getPrank}
-                    prank={prank}
-                  />
-                );
-              })}
-            </div>
+              <Col fluid md={6} className={'fullwidth'} >
+                <Container fluid className={'p-0'}>
+                  {prank.steps.map((step,index) => {
+                    return (
+                      <Row  fluid className={index % 2 === 0 ? "green-bg  fullwidth" : "yellow-bg  fullwidth"}>
+                        <Col className={'fullwidth'}>
+                          <StepCard
+                            key={step._id}
+                            element={step}
+                            refreshPrank={getPrank}
+                            prank={prank}
+                            index={index}
+                          />
+                        </Col>
+                      </Row>
+                    );
+                  })}
+                </Container>
+              </Col>
+            </Row>
           </>
         )}
-      </div>
+      </Container>
     </>
   );
 }

@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
+
+
 .App {
   text-align: center;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -11,6 +15,11 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+h1{
+  font-family: 'Nabla', cursive;
+  font-size: 60px;
 }
 
 .App-header {
@@ -35,4 +44,63 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.lightblue-bg {
+  background-image: linear-gradient(#ED64B6, #018FF5);
+
+  ;
+}
+
+.pink-bg {
+  background-color: #ED64B6
+  ;
+}
+.lightblue-font {
+  color: #018FF5
+  ;
+  border: 1px solid #000000;
+}
+
+.pink-font {
+  color: #ED64B6
+  ;
+  border: 1px solid #000000;
+}
+
+.green-bg {
+  background-image: linear-gradient(to right,#FFE600, #159400);
+  ;
+}
+
+.yellow-bg {
+  background-image: linear-gradient(to right,#018FF5, #ED64B6);
+  ;
+}
+.green-font {
+  color: #159400
+  ;
+ 
+}
+
+.yellow-font {
+  color: #FFE600
+  ;
+  
+}
+
+.typo-border{
+  /* -webkit-text-stroke-width: 0.1px; */
+  -webkit-text-stroke-color: black;
+}
+
+.fullwidth {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-custom {
+  color:red;
+  background-color: red;
 }
