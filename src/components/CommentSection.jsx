@@ -39,11 +39,14 @@ function CommentSection(props) {
         onClick={() => setOpen(!open)}
         aria-controls="comment-section"
         aria-expanded={open}
+        className={'bootstrap-overrides btn-detailpage'}
+        
       >
-        {comments.length === 0 && <p>Write a comment</p>}
-        {comments.length === 1 && <p>One comment</p>}
-        {comments.length > 1 && <p>{comments.length} comments</p>}
+        {comments.length === 0 && <p style={{margin: '0'}}>Write a comment</p>}
+        {comments.length === 1 && <p style={{margin: '0'}}>One comment</p>}
+        {comments.length > 1 && <p style={{margin: '0'}}>{comments.length} comments</p>}
       </Button>
+      
       <Collapse in={open}>
         <div id="comment-section">
           {comments.map((comment) => {

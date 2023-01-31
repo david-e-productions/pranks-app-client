@@ -31,7 +31,7 @@ function PrankDetailPage() {
           <>
 
             <Row fluid className={"p-0"}>
-              <Col fluid md={6} className={'lightblue-bg pink-font'}>
+              <Col fluid md={6} className={'lightblue-bg pink-font'} >
                 <PrankCard
                   key={prank._id}
                   element={prank}

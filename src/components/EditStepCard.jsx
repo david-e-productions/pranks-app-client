@@ -38,6 +38,7 @@ function EditStepCard(prop) {
 
   return (
     <>
+    <h1 style={{fontSize:'50px'}}>Edit Step</h1>
 <form onSubmit={handleUpdateSubmit}>
       <label>Title</label>
       <input
