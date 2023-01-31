@@ -38,10 +38,13 @@ function EditStepCard(prop) {
 
   return (
     <>
-    <h1 style={{fontSize:'50px'}}>Edit Step</h1>
-<form onSubmit={handleUpdateSubmit}>
-      <label>Title</label>
+    <h1 
+    className="m-t-20"
+    style={{fontSize:'50px'}}>Edit Step</h1>
+<form style={{display:'flex', flexDirection:'column'}}onSubmit={handleUpdateSubmit}>
+      <label className='form-label-blue'>Title</label>
       <input
+        className="input-yellow"
         type="text"
         value={stepTemp.title}
         onChange={(e) => {
@@ -49,23 +52,38 @@ function EditStepCard(prop) {
         }}
       ></input>
       <br />
-      <label>Description</label>
-      <input type={"textarea"} value={stepTemp.description} onChange={(e) => {
+      <label className='form-label-blue'>Description</label>
+      <input
+        className="input-yellow"
+
+       type={"textarea"} value={stepTemp.description} onChange={(e) => {
           setStepTemp({ ...stepTemp, description: e.target.value });
         }}></input>
       <br />
+        <div className="prankCardDetailCard">
+        <label  >Step done?</label>
+      <input
+        className="prankCardDetailCard .checkbox"
 
-      <label>Step done?</label>
-      <input type="checkbox" checked={stepTemp.isDone} onChange={(e) => {
+       type="checkbox" checked={stepTemp.isDone} onChange={(e) => {
           setStepTemp({ ...stepTemp, isDone: e.target.checked });
         }}></input>
+        </div>
+      
       <br />
 
-      <button type="submit">Save changes</button>
+      <button 
+      className="btn-detailpage"
+      style={{margin: '5px auto'}}
+      type="submit">Save changes</button>
     </form>
     <form onSubmit={handleDeleteSubmit}>
 
-      <button type={'submit'}>Delete Step</button>
+      <button
+      className="btn-detailpage"
+      style={{margin: '5px auto'}}
+      
+       type={'submit'}>Delete Step</button>
     </form>
 
     </>

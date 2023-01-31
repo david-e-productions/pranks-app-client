@@ -34,7 +34,10 @@ function CommentSection(props) {
   };
 
   return (
-    <>
+    <div
+    style={{display:'flex', flexDirection:'column'}}
+    >
+    
       <Button
         onClick={() => setOpen(!open)}
         aria-controls="comment-section"
@@ -52,13 +55,20 @@ function CommentSection(props) {
           {comments.map((comment) => {
             return (
               <div>
-                <h3>{comment.user.name}</h3>
-                <p>{comment.description}</p>
+                <p
+                className="input-yellow m-t-20"
+                style={{marginBottom:'0'}}
+                >{comment.user.name} commented:</p>
+                <p
+                className="form-label-blue"
+                >{comment.description}</p>
               </div>
             );
           })}
           <form onSubmit={handlePrankCommentSubmit}>
             <input
+                className="input-yellow"
+
               type="text"
               value={prankComment}
               onChange={(e) => setPrankComment(e.target.value)}
@@ -68,11 +78,11 @@ function CommentSection(props) {
               value={prankCommentOwner}
               onChange={(e) => setPrankCommentOwner(e.target.value)}
             ></input>
-            <button type="submit">Comment</button>
+            <button className="btn-detailpage" type="submit">Comment</button>
           </form>
         </div>
       </Collapse>
-    </>
+    </div>
   );
 }
 
