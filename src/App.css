@@ -117,9 +117,12 @@
   padding: 0;
 }
 
-#homePage {
-  background-image: url("http://i.stack.imgur.com/kx8MT.gif");
+.homePage {
+  background-image: url("https://i.imgur.com/ZaPhVXq.gif");
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
+  height: 90vh;
 }
 
 #bootstrap-overrides .btn-detailpage {
@@ -182,9 +185,16 @@
 
 #bootstrap-overrides .navbar {
   background-color: #ed64b6;
-
 }
 
 .m-t-20 {
   margin-top: 20px;
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.center {
+  margin: 0 auto;
 }

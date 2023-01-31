@@ -57,7 +57,7 @@ function StepCard(prop) {
             
               <button
                
-                className={'bootstrap-overrides btn-detailpage'}
+                className={'btn-detailpage'}
                 onClick={() => setEditMode(!editMode)}
               >
                 Edit

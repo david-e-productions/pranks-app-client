@@ -4,10 +4,16 @@ function PrankCardList(props) {
   const { title, description, _id } = props;
   return (
     <div className="PrankCard">
-      <Link to={`/pranks/${_id}`}>
-        <h3>{title}</h3>
+      <Link 
+      style={{textDecoration:'none'}}
+      to={`/pranks/${_id}`}>
+        <h1
+        style={{fontSize:'40px'}}
+        >{title}</h1>
       </Link>
-      <p>{description}</p>
+      <p
+      className="prankCardDetailCard"
+      >{description}</p>
     </div>
   );
 }
