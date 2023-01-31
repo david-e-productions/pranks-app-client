@@ -27,16 +27,32 @@ function PrankCard(props) {
     <>
       {!editMode && !addStepMode && (
         <>
-          <h1 className={'m-0'}>{title}</h1>
-          <p className={'m-0'}> 
-            On {time} at {place}
-          </p>
-          <p className={'m-0'}>{description}</p>
-          <p className={'m-0'}>{prankee}</p>
+          <h1 className={"m-t-20"}>{title}</h1>
 
-          {user._id === prankOwner && (
-            <>
+          <div style={{ margin: "30px 0" }}>
+            <p className={"m-0 form-label-blue m-b-10"}>When and Where:</p>
+            <p className={"m-b-20 prankCardDetailCard"}>
+              On {time} at {place}
+            </p>
+
+            <p className={" m-0 form-label-blue"}>Description:</p>
+
+            <p className={"m-b-20 prankCardDetailCard"}>{description}</p>
+            <p className={" m-0 form-label-blue"}>Victim of the Prank:</p>
+
+            <p className={"m-0 prankCardDetailCard"}>{prankee}</p>
+          </div>
+
+          {user && user._id === prankOwner && (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+            >
               <button
+                className={"bootstrap-overrides btn-detailpage"}
                 onClick={() => {
                   toggleEditMode();
                 }}
@@ -44,16 +60,17 @@ function PrankCard(props) {
                 Edit
               </button>
               <button
+                className={"bootstrap-overrides btn-detailpage"}
                 onClick={() => {
                   toggleAddStepMode();
                 }}
               >
                 Add Step
               </button>
-            </>
-          )}
 
-          <CommentSection prank={element} refreshPrank={refreshPrank} />
+              <CommentSection prank={element} refreshPrank={refreshPrank} />
+            </div>
+          )}
         </>
       )}
 

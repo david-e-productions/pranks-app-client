@@ -56,68 +56,80 @@ function EditPrankCard(props) {
 
   return (
     <>
+    <h1>Edit Prank</h1>
       {tempPrank && (
         <>
-          <form onSubmit={handleSubmit}>
-            <label>
+          <form style={{display:'flex',flexDirection:'column'}} onSubmit={handleSubmit}>
+            <label className={'form-label-blue'}>
               Title:
+              </label>
               <input
+              className={'input-yellow'}
                 type="text"
                 value={tempPrank.title}
                 onChange={(e) =>
                   setTempPrank({ ...tempPrank, title: e.target.value })
                 }
               />
-            </label>
+            
             <br />
-            <label>
+            <label className={'form-label-blue'}>
               Time:
+              </label>
               <input
+              className={'input-yellow'}
                 type="date"
                 value={tempPrank.time}
                 onChange={(e) =>
                   setTempPrank({ ...tempPrank, time: e.target.value })
                 }
               />
-            </label>
+           
             <br />
-            <label>
+            <label className={'form-label-blue'}>
               Place:
+              </label>
               <input
+              className={'input-yellow'}
                 type="text"
                 value={tempPrank.place}
                 onChange={(e) =>
                   setTempPrank({ ...tempPrank, place: e.target.value })
                 }
               />
-            </label>
+            
             <br />
-            <label>
+            <label className={'form-label-blue'}>
               Prankee:
+              </label>
               <input
+              className={'input-yellow'}
                 type="text"
                 value={tempPrank.prankee}
                 onChange={(e) =>
                   setTempPrank({ ...tempPrank, prankee: e.target.value })
                 }
               />
-            </label>
+           
             <br />
-            <label>
+            <label className={'form-label-blue'}>
               Description:
+              </label>
               <textarea
+              className={'input-yellow'}
                 value={tempPrank.description}
                 onChange={(e) =>
                   setTempPrank({ ...tempPrank, description: e.target.value })
                 }
               />
-            </label>
+          
             <br />
-            <button type="submit">Submit</button>
+            
+            <button style={{margin:'0 auto'}} className={'btn-detailpage'} type="submit">Submit</button>
           </form>
 
-          <form onSubmit={handleDeleteSubmit}>
-            <button type={"submit"}>Delete Prank</button>
+          <form  onSubmit={handleDeleteSubmit}>
+            <button  style={{margin:'0 auto'}} className={'btn-detailpage'} type={"submit"}>Delete Prank</button>
           </form>
         </>
       )}
