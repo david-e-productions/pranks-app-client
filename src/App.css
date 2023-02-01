@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px; 
+  height: 40px;
   width: 200px;
   border: none;
   padding: 0;
@@ -29,13 +29,12 @@
   color: #ed64b6;
 }
 
-
 .btn-blue {
   background-color: #018ff5;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px; 
+  height: 40px;
   width: 200px;
   border: none;
   padding: 0;
@@ -203,7 +202,7 @@
   margin-top: 20px;
 }
 
-.form-label-blue-2{
+.form-label-blue-2 {
   color: #ed64b6;
   background-color: #018ff5;
   border-radius: 20px;
@@ -241,6 +240,10 @@
   margin-top: 10px;
 }
 
+.p-t-20 {
+  padding-top: 20px;
+}
+
 .center {
   margin: 0 auto;
 }
@@ -251,17 +254,21 @@
   margin: 0;
 }
 
-
+.background-fade {
+  background-image: linear-gradient(#ed64b6, #018ff5);
+  height: 100%;
+  min-height: 100vh;
+}
 
 /* NavBar Buttons Media Queries */
 
-@media (min-width:100px) {
+@media (min-width: 100px) {
   .btn-blue {
     background-color: #018ff5;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px; 
+    height: 40px;
     width: 100%;
     border: none;
     padding: 0;
@@ -270,7 +277,6 @@
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
     font-size: 30px;
     margin: 0 auto;
-
   }
 }
 
@@ -280,7 +286,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px; 
+    height: 40px;
     width: 100%;
     border: none;
     padding: 0;
@@ -289,7 +295,6 @@
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
     font-size: 30px;
     margin: 0 auto;
-
   }
 }
 
@@ -299,7 +304,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px; 
+    height: 40px;
     width: 100%;
     border: none;
     padding: 0;
@@ -308,7 +313,6 @@
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
     font-size: 30px;
     margin: 0 auto;
-
   }
 }
 
@@ -318,7 +322,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px; 
+    height: 40px;
     width: 200px;
     border: none;
     padding: 0;
@@ -339,7 +343,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px; 
+    height: 40px;
     width: 200px;
     border: none;
     padding: 0;
@@ -354,13 +358,9 @@
   }
 }
 
-
-
-
-
 /* HomePage Media Queries */
 
-@media (min-width:100px) {
+@media (min-width: 100px) {
   #bootstrap-overrides .homepage-font {
     font-size: 60px;
   }
@@ -388,4 +388,8 @@
   #bootstrap-overrides .homepage-font {
     font-size: 160px;
   }
+}
+
+.imgDetailPage {
+  width: 100%;
 }

@@ -9,15 +9,15 @@ function PrankCard(props) {
   const [addStepMode, setAddStepMode] = useState(false);
   const { user } = useContext(AuthContext);
 
-  console.log(user);
+
   const prankOwner = props.element.userId;
   
 
 
   const { element, refreshPrank } = props;
-  const { title, time, place, description, prankee } = element;
+  const { title, time, place, description, imageUrl, prankee } = element;
 
-  console.log(time)
+  console.log('imageUrl',imageUrl)
 
  const renderDate = () => {
   if(time) {
@@ -41,6 +41,12 @@ function PrankCard(props) {
       {!editMode && !addStepMode && (
         <>
           <h1 className={"m-t-20"}>{title}</h1>
+          {imageUrl && (
+            <>
+            <img className='imgDetailPage'src={imageUrl} alt={title}></img>
+            </>
+           
+          )}
 
           <div style={{ margin: "30px 0" }}>
             <p className={"m-0 form-label-blue m-b-10"}>When and Where:</p>

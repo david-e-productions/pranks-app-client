@@ -41,7 +41,7 @@ function StepCard(prop) {
     <div>
       {!editMode && (
         <>
-          <h1 className={"m-b-20 m-t-20"} style={{ fontSize: "50px" }}>
+          <h1 className={"m-b-20 p-t-20"} style={{ fontSize: "50px" }}>
             {prop.index + 1}. {title}
           </h1>
           <p className={"m-0 form-label-blue"}>{description}</p>
