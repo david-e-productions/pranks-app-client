@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../context/auth.context";
+import { AuthContext, } from "../context/auth.context";
+
 
 function Navbar() {
-  const { isLoggedIn, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, logOutUser, navigate } = useContext(AuthContext);
+  // const navigate = useNavigate()
+  
   return (
     <nav className="navbar navbar-expand-lg ">
       <div className="container-fluid">
@@ -45,22 +48,22 @@ function Navbar() {
                 <Link className="nav-link justify-content-end">
                   <button className="btn-blue" onClick={logOutUser}>
                     Logout
-                  </button>{" "}
+                  </button>
                 </Link>
               </>
             )}
 
             {!isLoggedIn && (
               <>
-                <Link class="nav-link" to="/signup">
+                <Link className="nav-link" to="/signup">
                   {" "}
-                  <button type="button" class="btn-blue">
+                  <button type="button" className="btn-blue">
                     Sign Up
                   </button>{" "}
                 </Link>
-                <Link class="nav-link" to="/login">
+                <Link className="nav-link" to="/login">
                   {" "}
-                  <button type="button" class="btn-blue">
+                  <button type="button" className="btn-blue">
                     Login
                   </button>{" "}
                 </Link>
