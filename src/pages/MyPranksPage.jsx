@@ -27,7 +27,7 @@ function MyPranksPage() {
   }, [user]);
 
   return (
-    <>
+    <div className="lightblue-bg p-0" style={{ height: "100vh" }}>
       {pranks &&
         pranks.map((prank) => {
           return (
@@ -41,7 +41,7 @@ function MyPranksPage() {
             </div>
           );
         })}
-    </>
+    </div>
   );
 }
 
