@@ -1,7 +1,10 @@
 import axios from "axios";
 import React, { useState, useContext } from "react";
+import { alignPropType } from "react-bootstrap/esm/types";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import service from "../api/service";
+
 
 // TO DO:
 // Add the user via AuthContext to the form so we can know which user added the prank
@@ -11,6 +14,7 @@ function AddPrankPage() {
   const [time, setTime] = useState("");
   const [place, setPlace] = useState("");
   const [prankee, setPrankee] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
   const { user } = useContext(AuthContext);
 
@@ -18,11 +22,24 @@ function AddPrankPage() {
 
   const storedToken = localStorage.getItem("authToken");
 
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    service
+      .uploadImage(uploadData)
+      .then((response) => {
+        setImageUrl(response.fileUrl);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const userId = user._id;
 
-    const reqBody = { title, time, place, prankee, description, userId };
+    const reqBody = { title, time, place, prankee, imageUrl, description, userId };
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/prank`, reqBody, {
@@ -64,6 +81,8 @@ function AddPrankPage() {
           value={prankee}
           onChange={(e) => setPrankee(e.target.value)}
         />
+        <input type="file" onChange={(e) => handleFileUpload(e)} />
+
         <label className={"form-label-blue-2"}>Description: </label>
         <textarea
           className={"input-yellow m-b-20"}

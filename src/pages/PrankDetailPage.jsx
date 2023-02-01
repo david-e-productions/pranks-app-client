@@ -28,8 +28,10 @@ function PrankDetailPage() {
     <>
       {prank && (
         <>
-          <Row fluid className={"p-0"}>
-            <Col fluid md={6} className={"lightblue-bg pink-font"}>
+
+          <Row className={"p-0"}>
+            <Col md={6} className={"lightblue-bg pink-font"}>
+
               <PrankCard
                 key={prank._id}
                 element={prank}
@@ -40,14 +42,16 @@ function PrankDetailPage() {
             <Col md={6} className="p-0">
               {prank.steps.map((step, index) => {
                 return (
-                  <Row
-                    className={
-                      index % 2 === 0
-                        ? "green-bg  fullwidth"
-                        : "yellow-bg  fullwidth"
-                    }
-                  >
-                    <Col className={"p-0"}>
+
+                  <>
+                    <Col
+                      className={
+                        index % 2 === 0
+                          ? "green-bg  fullwidth p-0"
+                          : "yellow-bg  fullwidth p-0"
+                      }
+                    >
+
                       <StepCard
                         key={step._id}
                         element={step}
@@ -56,9 +60,12 @@ function PrankDetailPage() {
                         index={index}
                       />
                     </Col>
-                  </Row>
+
+                  </>
                 );
               })}
+            
+
             </Col>
           </Row>
         </>

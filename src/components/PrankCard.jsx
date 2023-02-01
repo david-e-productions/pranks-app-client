@@ -9,18 +9,24 @@ function PrankCard(props) {
   const [addStepMode, setAddStepMode] = useState(false);
   const { user } = useContext(AuthContext);
 
-  console.log(user);
+
   const prankOwner = props.element.userId;
 
   const { element, refreshPrank } = props;
-  const { title, time, place, description, prankee } = element;
+  const { title, time, place, description, imageUrl, prankee } = element;
 
-  console.log(time);
 
-  const day = time.slice(0, 10);
-  const hour = time.slice(11, 16);
+  
 
-  console.log(`On ${day} at ${hour}`);
+ const renderDate = () => {
+  if(time) {
+    return `On ${time.slice(0,10)} at ${time.slice(11,16)} at ${place} `
+  }
+ }
+
+
+  
+
 
   const toggleEditMode = () => {
     setEditMode(!editMode);
@@ -34,10 +40,21 @@ function PrankCard(props) {
       {!editMode && !addStepMode && (
         <>
           <h1 className={"m-t-20"}>{title}</h1>
+
+          {imageUrl && (
+            <>
+            <img className='imgDetailPage'src={imageUrl} alt={title}></img>
+            </>
+           
+          )}
+
+
           <div style={{ margin: "30px 0" }}>
             <p className={"form-label-blue"}>When and Where:</p>
             <p className={"m-b-20 prankCardDetailCard"}>
-              On {day} / {hour} at {place}
+
+            {renderDate()}
+
             </p>
             <p className={" form-label-blue"}>Description:</p>
             <p className={"m-b-20 prankCardDetailCard"}>{description}</p>
