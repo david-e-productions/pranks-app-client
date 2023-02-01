@@ -266,14 +266,11 @@
     border: none;
     padding: 0;
     color: #ed64b6;
-    /* border-radius: 20px; */
     font-weight: bold;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
     font-size: 30px;
     margin: 0 auto;
 
-    /* margin-top: 20px; */
-    /* margin-bottom: 20px; */
   }
 }
 
@@ -285,17 +282,14 @@
     justify-content: center;
     height: 40px; 
     width: 100%;
-
     border: none;
     padding: 0;
     color: #ed64b6;
-    border-radius: 20px;
     font-weight: bold;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
     font-size: 30px;
     margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+
   }
 }
 
@@ -306,17 +300,15 @@
     align-items: center;
     justify-content: center;
     height: 40px; 
-    width: 200px;
+    width: 100%;
     border: none;
     padding: 0;
     color: #ed64b6;
-    border-radius: 20px;
     font-weight: bold;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
     font-size: 30px;
     margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+
   }
 }
 
