@@ -4,9 +4,9 @@ import { AuthContext, } from "../context/auth.context";
 
 
 function Navbar() {
-  const { isLoggedIn, logOutUser, navigate } = useContext(AuthContext);
-  // const navigate = useNavigate()
-  
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
+  const navigate = useNavigate()
+
   return (
     <nav className="navbar navbar-expand-lg ">
       <div className="container-fluid">
@@ -45,8 +45,11 @@ function Navbar() {
                     Add a Prank
                   </button>
                 </Link>
-                <Link className="nav-link justify-content-end">
-                  <button className="btn-blue" onClick={logOutUser}>
+                <Link className="nav-link justify-content-end" to='/'>
+                  <button className="btn-blue" onClick={()=>{
+                    
+                    logOutUser()
+                    }}>
                     Logout
                   </button>
                 </Link>
