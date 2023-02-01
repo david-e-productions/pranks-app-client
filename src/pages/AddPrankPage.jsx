@@ -34,53 +34,47 @@ function AddPrankPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Title:
+    <div className="lightblue-bg p-0" style={{ height: "100vh" }}>
+      <form onSubmit={handleSubmit}>
+        <label className={"form-label-blue-2"}>Title: </label>
         <input
+          className={"input-yellow m-b-20"}
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-      </label>
-      <br />
-      <label>
-        Time and date:
+        <label className={"form-label-blue-2"}>Time and date: </label>
         <input
+          className={"input-yellow m-b-20"}
           type="datetime-local"
           value={time}
           onChange={(e) => setTime(e.target.value)}
         />
-      </label>
-      <br />
-      <label>
-        Place:
+        <label className={"form-label-blue-2"}>Place: </label>
         <input
+          className={"input-yellow m-b-20"}
           type="text"
           value={place}
           onChange={(e) => setPlace(e.target.value)}
         />
-      </label>
-      <br />
-      <label>
-        Prankee:
+        <label className={"form-label-blue-2"}>Prankee: </label>
         <input
+          className={"input-yellow m-b-20"}
           type="text"
           value={prankee}
           onChange={(e) => setPrankee(e.target.value)}
         />
-      </label>
-      <br />
-      <label>
-        Description:
+        <label className={"form-label-blue-2"}>Description: </label>
         <textarea
+          className={"input-yellow m-b-20"}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-      </label>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+        <button className="btn-blue" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 }
 

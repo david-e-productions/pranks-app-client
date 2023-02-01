@@ -19,8 +19,8 @@ function SignUpPage() {
 
     const reqBody = { email, password, name };
 
-   
-    axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, reqBody)
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/auth/signup`, reqBody)
       .then((res) => {
         navigate("/login");
       })
@@ -31,37 +31,44 @@ function SignUpPage() {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <div className="SignupPage lightblue-bg" style={{ height: "100vh" }}>
+      <h1 className="m-b-20">Sign Up</h1>
       <form onSubmit={handleSignUpSubmit}>
-        <label>Email:</label>
+        <label className={"form-label-blue-2"}>Email:</label>
         <input
+          className={"input-yellow m-b-20"}
           type="email"
           name="email"
           value={email}
           onChange={handleEmail}
         ></input>
-        <label>Username:</label>
+        <label className={"form-label-blue-2"}>Username:</label>
         <input
+          className={"input-yellow m-b-20"}
           type="text"
           name="name"
           value={name}
           onChange={handleName}
         ></input>
-        <label>Password:</label>
+        <label className={"form-label-blue-2"}>Password:</label>
         <input
+          className={"input-yellow m-b-20"}
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         ></input>
-        <button type="submit">Sign Up</button>
+        <button className="btn-blue" type="submit">
+          Sign Up
+        </button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have an account?</p>
-      <Link to={"/login"}>Login</Link>
+      <p className="display-6">Already have an account?</p>
+      <Link className="btn-reverse" to={"/login"}>
+        Login
+      </Link>
     </div>
   );
 }
