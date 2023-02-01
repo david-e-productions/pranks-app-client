@@ -39,7 +39,6 @@ function PrankDetailPage() {
               </Col>
 
               <Col md={6} className="p-0">
-                {/* <Container fluid className={'p-0'}> */}
                 {prank.steps.map((step, index) => {
                   return (
                     <Row

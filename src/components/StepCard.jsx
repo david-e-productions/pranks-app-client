@@ -4,7 +4,6 @@ import Collapse from "react-bootstrap/Collapse";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import EditStepCard from "./EditStepCard";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 function StepCard(prop) {
   const { title, description, isDone, comments, _id } = prop.element;
