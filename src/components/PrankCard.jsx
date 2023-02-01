@@ -11,10 +11,18 @@ function PrankCard(props) {
 
   console.log(user);
   const prankOwner = props.element.userId;
-  console.log("prankowner", prankOwner);
+  
+
 
   const { element, refreshPrank } = props;
   const { title, time, place, description, prankee } = element;
+
+  console.log(time)
+
+  const day = time.slice(0,10)
+  const hour = time.slice(11,16)
+
+  console.log(`On ${day} at ${hour}`)
 
   const toggleEditMode = () => {
     setEditMode(!editMode);
@@ -32,7 +40,7 @@ function PrankCard(props) {
           <div style={{ margin: "30px 0" }}>
             <p className={"m-0 form-label-blue m-b-10"}>When and Where:</p>
             <p className={"m-b-20 prankCardDetailCard"}>
-              On {time} at {place}
+            On {day} / {hour} at {place}
             </p>
 
             <p className={" m-0 form-label-blue"}>Description:</p>

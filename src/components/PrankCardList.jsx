@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 function PrankCardList(props) {
   const { title, description, _id } = props;
   return (
-    <div className="PrankCard">
+    <div 
+    
+    className="PrankCard">
       <Link 
       style={{textDecoration:'none'}}
       to={`/pranks/${_id}`}>

@@ -12,7 +12,6 @@ function StepCard(prop) {
   const [editMode, setEditMode] = useState(false);
 
   const prankOwner = prop.prank.userId;
-  console.log(prankOwner);
 
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");

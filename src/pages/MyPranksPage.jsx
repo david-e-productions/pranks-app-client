@@ -31,7 +31,12 @@ function MyPranksPage() {
       {pranks &&
         pranks.map((prank) => {
           return (
-            <div>
+            <div
+              style={{
+                backgroundImage: "linear-gradient( #018ff5, #ed64b6)",
+                height: "100vh",
+              }}
+            >
               <PrankCardList key={prank._id} {...prank} />
             </div>
           );
