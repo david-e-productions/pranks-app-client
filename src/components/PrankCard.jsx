@@ -67,9 +67,10 @@ function PrankCard(props) {
               >
                 Add Step
               </button>
-
-              <CommentSection prank={element} refreshPrank={refreshPrank} />
             </div>
+          )}
+          {user && (
+            <CommentSection prank={element} refreshPrank={refreshPrank} />
           )}
         </>
       )}
