@@ -30,7 +30,6 @@ function MyPranksPage() {
 
     <div className="lightblue-bg p-0" style={{ height: "100vh",backgroundImage: "linear-gradient( #ed64b6, #018ff5 )" }}>
 
-    <div className="lightblue-bg p-0 " style={{ height: "100vh" }}>
 
       {pranks &&
         pranks.map((prank) => {
