@@ -65,7 +65,7 @@ function SignUpPage() {
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p className="display-6">Already have an account?</p>
+      <h1>Already have an account?</h1>
       <Link className="btn-reverse" to={"/login"}>
         Login
       </Link>

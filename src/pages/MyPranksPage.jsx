@@ -27,13 +27,13 @@ function MyPranksPage() {
   }, [user]);
 
   return (
-    <div className="lightblue-bg p-0" style={{ height: "100vh" }}>
+    <div className="lightblue-bg p-0 " style={{ height: "100vh" }}>
       {pranks &&
         pranks.map((prank) => {
           return (
             <div
               style={{
-                backgroundImage: "linear-gradient( #018ff5, #ed64b6)",
+                backgroundImage: "linear-gradient(#ed64b6,#018ff5)",
                 height: "100vh",
               }}
             >
