@@ -11,18 +11,16 @@ function PrankCard(props) {
 
   console.log(user);
   const prankOwner = props.element.userId;
-  
-
 
   const { element, refreshPrank } = props;
   const { title, time, place, description, prankee } = element;
 
-  console.log(time)
+  console.log(time);
 
-  const day = time.slice(0,10)
-  const hour = time.slice(11,16)
+  const day = time.slice(0, 10);
+  const hour = time.slice(11, 16);
 
-  console.log(`On ${day} at ${hour}`)
+  console.log(`On ${day} at ${hour}`);
 
   const toggleEditMode = () => {
     setEditMode(!editMode);
@@ -36,21 +34,16 @@ function PrankCard(props) {
       {!editMode && !addStepMode && (
         <>
           <h1 className={"m-t-20"}>{title}</h1>
-
           <div style={{ margin: "30px 0" }}>
-            <p className={"m-0 form-label-blue m-b-10"}>When and Where:</p>
+            <p className={"form-label-blue"}>When and Where:</p>
             <p className={"m-b-20 prankCardDetailCard"}>
-            On {day} / {hour} at {place}
+              On {day} / {hour} at {place}
             </p>
-
-            <p className={" m-0 form-label-blue"}>Description:</p>
-
+            <p className={" form-label-blue"}>Description:</p>
             <p className={"m-b-20 prankCardDetailCard"}>{description}</p>
-            <p className={" m-0 form-label-blue"}>Victim of the Prank:</p>
-
-            <p className={"m-0 prankCardDetailCard"}>{prankee}</p>
+            <p className={" form-label-blue"}>Victim of the Prank:</p>
+            <p className={"prankCardDetailCard"}>{prankee}</p>
           </div>
-
           {user && user._id === prankOwner && (
             <div
               style={{
@@ -82,7 +75,6 @@ function PrankCard(props) {
           )}
         </>
       )}
-
       {addStepMode && (
         <>
           <AddStepForm
@@ -91,7 +83,6 @@ function PrankCard(props) {
           />
         </>
       )}
-
       {editMode && (
         <>
           <EditPrankCard

@@ -59,7 +59,7 @@ function LoginPage() {
         </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <p className="display-6">Don't have an account yet?</p>
+      <h1>Don't have an account yet?</h1>
       <Link className="btn-reverse" to={"/signup"}>
         Sign Up
       </Link>
