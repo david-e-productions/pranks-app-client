@@ -186,6 +186,7 @@
   display: block;
   margin: 0 auto;
   margin-top: 5px;
+  width: 300px;
 }
 
 .form-label-blue {
@@ -200,6 +201,9 @@
   margin: 0 auto;
   text-align: center;
   margin-top: 20px;
+  width: 350px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .form-label-blue-2 {
@@ -222,6 +226,9 @@
   font-weight: bold;
   padding: 5px;
   border-radius: 20px;
+  width: 300px;;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .m-b-20 {

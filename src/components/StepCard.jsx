@@ -44,30 +44,23 @@ function StepCard(prop) {
           <h1 className={"m-b-20 p-t-20"} style={{ fontSize: "50px" }}>
             {prop.index + 1}. {title}
           </h1>
-          <p className={"m-0 form-label-blue"}>{description}</p>
+          <p className={"form-label-blue"}>{description}</p>
           {isDone && (
             <p className={"m-b-20 prankCardDetailCard"}>Step completed:✅</p>
           )}
           {!isDone && (
             <p className={"m-b-20 prankCardDetailCard"}>Step completed:❌</p>
           )}
-          {/* <div */}
-          {/* style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }} */}
-          {/* > */}
-          {/* </div> */}
           {user && user._id === prankOwner && (
-            <>
+            <div className="m-b-20 ">
               <button
                 className={"btn-detailpage"}
+                style={{ margin: "0 auto" }}
                 onClick={() => setEditMode(!editMode)}
               >
                 Edit
               </button>
-            </>
+            </div>
           )}
           {user && (
             <>
@@ -75,7 +68,7 @@ function StepCard(prop) {
                 onClick={() => setOpen(!open)}
                 aria-controls="comment-section"
                 aria-expanded={open}
-                // style={{color:'black',backgroundColor:'#ED64B6', padding:'3px'}}
+                style={{ margin: "0 auto" }}
                 className={"btn-detailpage"}
               >
                 {comments.length === 0 && (
@@ -91,19 +84,32 @@ function StepCard(prop) {
                   {comments.map((comment) => {
                     return (
                       <div>
-                        <h3>{comment.user.name}</h3>
-                        <p>{comment.description}</p>
+                        <p
+                          className="prankCardDetailCard m-t-20"
+                          style={{ marginBottom: "0" }}
+                        >
+                          {comment.user.name} commented:
+                        </p>
+                        <p className="form-label-blue m-b-20 ">
+                          {comment.description}
+                        </p>
                       </div>
                     );
                   })}
-                  <h3>Add Comment:</h3>
                   <form onSubmit={handleStepCommentSubmit}>
-                    <input
+                    <textarea
+                      className="input-yellow"
                       type="text"
                       value={stepComment}
                       onChange={(e) => setStepComment(e.target.value)}
-                    ></input>
-                    <button type="submit">Comment</button>
+                    />
+                    <button
+                      style={{ margin: "0 auto" }}
+                      className="btn-detailpage"
+                      type="submit"
+                    >
+                      Comment
+                    </button>
                   </form>
                 </div>
               </Collapse>

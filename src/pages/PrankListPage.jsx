@@ -22,8 +22,10 @@ function PrankListPage() {
   return (
     <>
 
+
       <Row className="lightblue-bg p-0" 
       style={{backgroundImage: 'linear-gradient(  #ed64b6 ,#018ff5)',height:'100vh'}}>
+
 
         <Col className="p-0" md={6} fluid>
           <h1 className="p-0 m-b-20 m-t-10">All Pranks:</h1>

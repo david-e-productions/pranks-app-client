@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PrankCard from "../components/PrankCard";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 function PrankDetailPage() {
   const [prank, setPrank] = useState("");
@@ -28,8 +28,10 @@ function PrankDetailPage() {
     <>
       {prank && (
         <>
+
           <Row className={"p-0"}>
             <Col md={6} className={"lightblue-bg pink-font"}>
+
               <PrankCard
                 key={prank._id}
                 element={prank}
@@ -40,6 +42,7 @@ function PrankDetailPage() {
             <Col md={6} className="p-0">
               {prank.steps.map((step, index) => {
                 return (
+
                   <>
                     <Col
                       className={
@@ -48,6 +51,7 @@ function PrankDetailPage() {
                           : "yellow-bg  fullwidth p-0"
                       }
                     >
+
                       <StepCard
                         key={step._id}
                         element={step}
@@ -56,10 +60,12 @@ function PrankDetailPage() {
                         index={index}
                       />
                     </Col>
+
                   </>
                 );
               })}
-              {/* </Container> */}
+            
+
             </Col>
           </Row>
         </>

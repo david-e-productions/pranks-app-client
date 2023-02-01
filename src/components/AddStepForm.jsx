@@ -31,30 +31,32 @@ function AddStepForm(props) {
         style={{ display: "flex", flexDirection: "column" }}
         onSubmit={handleSubmit}
       >
-        <label className="form-label-blue">Title</label>
+        <label className="form-label-blue-2">Title</label>
         <input
           className="input-yellow m-b-20"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         ></input>
-        <label className="form-label-blue">Description</label>
-        <input
+        <label className="form-label-blue-2">Description</label>
+        <textarea
           className="input-yellow m-b-20"
           type="textarea"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-        ></input>
-        <button 
-        className="btn-detailpage"
-        
-        style={{ margin: "0 auto" }} type="submit">
+        />
+        <button
+          className="btn-detailpage"
+          style={{ margin: "0 auto" }}
+          type="submit"
+        >
           Add Step
         </button>
       </form>
 
       <button
         className="btn-detailpage"
+        style={{ margin: "0 auto" }}
         onClick={() => {
           props.toggleAddStepMode();
         }}
