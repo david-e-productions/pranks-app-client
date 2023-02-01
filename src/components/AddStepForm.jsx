@@ -50,7 +50,9 @@ function AddStepForm(props) {
           className="btn-detailpage"
           style={{margin:'0 auto'}}
           type="submit">Add Step</button>
+          
       </form>
+      <button>Cancel</button>
     </>
   );
 }
