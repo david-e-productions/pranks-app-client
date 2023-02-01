@@ -6,6 +6,8 @@ function EditPrankCard(props) {
   const [tempPrank, setTempPrank] = useState();
   const navigate = useNavigate();
 
+  
+
   const {prankId} = useParams();
 
   const handleDeleteSubmit = (e) => {
@@ -78,7 +80,7 @@ function EditPrankCard(props) {
               </label>
               <input
               className={'input-yellow'}
-                type="date"
+                type="datetime-local"
                 value={tempPrank.time}
                 onChange={(e) =>
                   setTempPrank({ ...tempPrank, time: e.target.value })
