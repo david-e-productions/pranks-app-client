@@ -1,7 +1,7 @@
 import axios from "axios";
 import PrankCardList from "../components/PrankCardList";
 import { useState, useEffect } from "react";
-import { Container, Row, Col, ListGroup } from "react-bootstrap";
+import {  Row, Col } from "react-bootstrap";
 
 function PrankListPage() {
   const [pranks, setPranks] = useState([]);
@@ -23,7 +23,7 @@ function PrankListPage() {
     <>
 
       <Row className="lightblue-bg p-0" 
-      style={{backgroundImage: 'linear-gradient( #018ff5, #ed64b6)',height:'100vh'}}>
+      style={{backgroundImage: 'linear-gradient(  #ed64b6 ,#018ff5)',height:'100vh'}}>
 
         <Col className="p-0" md={6} fluid>
           <h1 className="p-0 m-b-20 m-t-10">All Pranks:</h1>
