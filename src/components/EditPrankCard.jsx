@@ -3,12 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import service from "../api/service";
 
-
 function EditPrankCard(props) {
   const [tempPrank, setTempPrank] = useState();
   const navigate = useNavigate();
   const [imageUrl, setImageUrl] = useState("");
-
 
   const { prankId } = useParams();
 
@@ -114,9 +112,15 @@ function EditPrankCard(props) {
               }
             />
             <br />
+            <label className={"form-label-blue"}>Choose an image: </label>
+            <label for="file-input">
+              <input
+                className="m-b-20 input-yellow ts"
+                type="file"
+                onChange={(e) => handleFileUpload(e)}
+              />
+            </label>
             <label className={"form-label-blue"}>Description:</label>
-        <input type="file" onChange={(e) => handleFileUpload(e)} />
-
             <textarea
               className={"input-yellow"}
               value={tempPrank.description}

@@ -25,20 +25,16 @@ function PrankDetailPage() {
   }, [prankId]);
 
   return (
-    <div
-    className={"lightblue-bg pink-font"}
-    style={{minHeight:'90vh'}}
-    >
+    <div className={"lightblue-bg"} style={{ minHeight: "90vh" }}>
       {prank && (
-        <div 
+        <div
         // className={"lightblue-bg pink-font"}
         >
-
           <Row className={"p-0"}>
-            <Col md={6} 
-            // className={"lightblue-bg pink-font"}
+            <Col
+              md={6}
+              // className={"lightblue-bg pink-font"}
             >
-
               <PrankCard
                 key={prank._id}
                 element={prank}
@@ -47,13 +43,11 @@ function PrankDetailPage() {
             </Col>
 
             <Col md={6} className="p-0">
-            {prank.steps.length === 0 && (
-              <h1 className='p-t-20'>No Steps added yet</h1>
-            )}
+              {prank.steps.length === 0 && (
+                <h1 className="p-t-20">No Steps added yet</h1>
+              )}
               {prank.steps.map((step, index) => {
-                
                 return (
-
                   <>
                     <Col
                       className={
@@ -62,7 +56,6 @@ function PrankDetailPage() {
                           : "yellow-bg  fullwidth p-0"
                       }
                     >
-
                       <StepCard
                         key={step._id}
                         element={step}
@@ -71,12 +64,9 @@ function PrankDetailPage() {
                         index={index}
                       />
                     </Col>
-
                   </>
                 );
               })}
-            
-
             </Col>
           </Row>
         </div>
