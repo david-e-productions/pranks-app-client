@@ -1,21 +1,17 @@
 import axios from "axios";
 import PrankCardList from "../components/PrankCardList";
 import { useState, useEffect } from "react";
-import {  Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 function PrankListPage() {
   const [pranks, setPranks] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
 
   const handleHover = (event) => {
-    if(event.target.id){
+    if (event.target.id) {
       setSelectedId(event.target.id);
-
     }
-    console.log('hoverId',event.target.id)
-    // console.log('seclectedId',selectedId)
   };
- 
 
   const getAllPranks = () => {
     axios
@@ -26,35 +22,34 @@ function PrankListPage() {
       .catch((err) => console.error(err));
   };
 
-  
-
   useEffect(() => {
     getAllPranks();
   }, []);
 
-
-  // when i hover over one of the items send the imageUrl to the state
-
-
   return (
     <>
-
-
-      <Row className="lightblue-bg p-0" 
-      style={{backgroundImage: 'linear-gradient(  #ed64b6 ,#018ff5)',height:'100vh'}}>
-
-
-        <Col className="p-0" md={6} fluid>
+      <Row
+        className="lightblue-bg p-0"
+        style={{
+          backgroundImage: "linear-gradient(  #ed64b6 ,#018ff5)",
+          // height: "100vh",
+        }}
+      >
+        <Col className="p-0" md={6} >
           <h1 className="p-0 m-b-20 m-t-10">All Pranks:</h1>
           {pranks.map((prank) => {
-            return <PrankCardList  key={prank._id} {...prank} handleHover={handleHover}  />;
+            return (
+              <PrankCardList
+                key={prank._id}
+                {...prank}
+                handleHover={handleHover}
+              />
+            );
           })}
         </Col>
         <Col className="p-0" md={6}>
-        {selectedId && (
-          <img src={selectedId} alt='pranks'></img>
-
-        )}
+          {selectedId && <img style={ {position: 'absolute', top: '30%', left: '45%'
+}}src={selectedId} alt="pranks"></img>}
         </Col>
       </Row>
     </>

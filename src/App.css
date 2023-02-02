@@ -400,3 +400,9 @@
 .imgDetailPage {
   width: 100%;
 }
+
+
+#bootstrap-overrides .row {
+  --bs-gutter-x: 0;
+
+}
