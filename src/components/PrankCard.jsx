@@ -9,24 +9,16 @@ function PrankCard(props) {
   const [addStepMode, setAddStepMode] = useState(false);
   const { user } = useContext(AuthContext);
 
-
   const prankOwner = props.element.userId;
 
   const { element, refreshPrank } = props;
   const { title, time, place, description, imageUrl, prankee } = element;
 
-
-  
-
- const renderDate = () => {
-  if(time) {
-    return `On ${time.slice(0,10)} at ${time.slice(11,16)} at ${place} `
-  }
- }
-
-
-  
-
+  const renderDate = () => {
+    if (time) {
+      return `On ${time.slice(0, 10)} at ${time.slice(11, 16)} at ${place} `;
+    }
+  };
 
   const toggleEditMode = () => {
     setEditMode(!editMode);
@@ -38,24 +30,23 @@ function PrankCard(props) {
   return (
     <>
       {!editMode && !addStepMode && (
-        <>
+        <div
+          style={{
+            backgroundImage: "linear-gradient(  #ed64b6 ,#018ff5)",
+            height: "100vh",
+          }}
+        >
           <h1 className={"m-t-20"}>{title}</h1>
 
           {imageUrl && (
             <>
-            <img className='imgDetailPage'src={imageUrl} alt={title}></img>
+              <img className="imgDetailPage" src={imageUrl} alt={title}></img>
             </>
-           
           )}
-
 
           <div style={{ margin: "30px 0" }}>
             <p className={"form-label-blue"}>When and Where:</p>
-            <p className={"m-b-20 prankCardDetailCard"}>
-
-            {renderDate()}
-
-            </p>
+            <p className={"m-b-20 prankCardDetailCard"}>{renderDate()}</p>
             <p className={" form-label-blue"}>Description:</p>
             <p className={"m-b-20 prankCardDetailCard"}>{description}</p>
             <p className={" form-label-blue"}>Victim of the Prank:</p>
@@ -90,7 +81,7 @@ function PrankCard(props) {
           {user && (
             <CommentSection prank={element} refreshPrank={refreshPrank} />
           )}
-        </>
+        </div>
       )}
       {addStepMode && (
         <>

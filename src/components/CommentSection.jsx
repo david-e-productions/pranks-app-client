@@ -103,7 +103,7 @@ function CommentSection(props) {
             ></input>
             <button
               style={{ margin: "0 auto" }}
-              className="btn-detailpage"
+              className="btn-detailpage m-b-20"
               type="submit"
             >
               Comment

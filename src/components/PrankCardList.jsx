@@ -6,22 +6,19 @@ function PrankCardList(props) {
   const { handleHover } = props;
 
   return (
-    <div className="PrankCard">
-           
+    <div className="PrankCard">       
       <Link  style={{ textDecoration: "none" }} to={`/pranks/${_id}`}>
       <div >
       <h1
-      onMouseEnter={handleHover} id={imageUrl}
-          
+      className="t-s p-t-20"
+      onMouseEnter={handleHover} id={imageUrl}   
           style={{ fontSize: "40px" }}
         >
           {title}
         </h1>
         <p  className="prankCardDetailCard m-b-20">{description}</p>
       </div>
-       
-      </Link>
-      
+      </Link> 
     </div>
   );
 }
