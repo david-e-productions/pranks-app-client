@@ -19,6 +19,7 @@ function PrankCardList(props) {
           <p className="prankCardDetailCard m-b-20">{description}</p>
         </div>
       </Link>
+
     </div>
   );
 }
