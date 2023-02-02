@@ -27,7 +27,7 @@ function PrankDetailPage() {
   return (
     <>
       {prank && (
-        <>
+        <div className={"lightblue-bg pink-font"}>
 
           <Row className={"p-0"}>
             <Col md={6} className={"lightblue-bg pink-font"}>
@@ -40,7 +40,11 @@ function PrankDetailPage() {
             </Col>
 
             <Col md={6} className="p-0">
+            {prank.steps.length === 0 && (
+              <h1 className='p-t-20'>No Steps added yet</h1>
+            )}
               {prank.steps.map((step, index) => {
+                
                 return (
 
                   <>
@@ -68,7 +72,7 @@ function PrankDetailPage() {
 
             </Col>
           </Row>
-        </>
+        </div>
       )}
     </>
   );
