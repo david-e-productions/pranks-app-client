@@ -112,17 +112,13 @@ function EditPrankCard(props) {
               }
             />
             <br />
-            <label
-              htmlFor="file-input"
-              onClick={(e) => {
-                handleFileUpload(e);
-              }}
-              className={"image-imput"}
-            >
-              Click here to choose an image
-            </label>
-            <label>
-              <input id="file-input" style={{ display: "none" }} type="file" />
+            <label className={"form-label-blue"}>Choose an image: </label>
+            <label for="file-input">
+              <input
+                className="m-b-20 input-yellow ts"
+                type="file"
+                onChange={(e) => handleFileUpload(e)}
+              />
             </label>
             <label className={"form-label-blue"}>Description:</label>
             <textarea

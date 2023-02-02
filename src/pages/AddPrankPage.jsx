@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import service from "../api/service";
@@ -17,7 +17,7 @@ function AddPrankPage() {
   const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
-
+  const inputRef = useRef();
   const storedToken = localStorage.getItem("authToken");
 
   const handleFileUpload = (e) => {
@@ -35,6 +35,7 @@ function AddPrankPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("!!!!");
     const userId = user._id;
 
     const reqBody = {
@@ -88,18 +89,16 @@ function AddPrankPage() {
           value={prankee}
           onChange={(e) => setPrankee(e.target.value)}
         />
-        <label
-          htmlFor="file-input"
-          onClick={(e) => {
-            handleFileUpload(e);
-          }}
-          className={"image-imput"}
-        >
-          Click here to choose an image
+
+        <label className={"form-label-blue"}>Choose an image: </label>
+        <label for="file-input">
+          <input
+            className="m-b-20 input-yellow ts"
+            type="file"
+            onChange={(e) => handleFileUpload(e)}
+          />
         </label>
-        <label>
-          <input id="file-input" style={{ display: "none" }} type="file" />
-        </label>
+
         <label className={"form-label-blue"}>Description: </label>
         <textarea
           className={"input-yellow m-b-20"}
