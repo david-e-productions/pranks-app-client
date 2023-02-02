@@ -5,6 +5,13 @@ import { Row, Col } from "react-bootstrap";
 
 function PrankListPage() {
   const [pranks, setPranks] = useState([]);
+  const [selectedId, setSelectedId] = useState(null);
+
+  const handleHover = (event) => {
+    if (event.target.id) {
+      setSelectedId(event.target.id);
+    }
+  };
 
   const getAllPranks = () => {
     axios
@@ -22,14 +29,21 @@ function PrankListPage() {
   return (
     <>
       <Row className="lightblue-bg p-0">
-        <Col className="p-0" md={6} fluid>
+        <Col className="p-0" md={6}>
           <h1 className="p-0 m-b-20 m-t-10 t">All Pranks:</h1>
           {pranks.map((prank) => {
-            return <PrankCardList key={prank._id} {...prank} />;
+            return (
+              <PrankCardList
+                key={prank._id}
+                {...prank}
+                handleHover={handleHover}
+              />
+            );
           })}
         </Col>
         <Col className="p-0" md={6}>
-          <h2 className="p-0">add images here</h2>
+          {selectedId && <img style={ {position: 'absolute', top: '30%', left: '45%'
+}}src={selectedId} alt="pranks"></img>}
         </Col>
       </Row>
     </>
