@@ -34,14 +34,12 @@ function PrankListPage() {
           {pranks.map((prank) => {
             return (
               <>
-              
-              <PrankCardList
-                key={prank._id}
-                {...prank}
-                handleHover={handleHover}
-              />
+                <PrankCardList
+                  key={prank._id}
+                  {...prank}
+                  handleHover={handleHover}
+                />
               </>
-             
             );
           })}
         </Col>
