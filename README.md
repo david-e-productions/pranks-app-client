@@ -1,6 +1,9 @@
-[Pranklicious](https://pranklicious.netlify.app)
+# Pranklicious
 
 ![Getting Started](./public/landingPageImg.png)
+
+[Click here to see deployed game](https://pranklicious.netlify.app)
+
 
 ## Description
 
@@ -15,4 +18,25 @@ Made with a wink by David and Davide
 
 - User Authentification 
 - CRUD on Models Prank/Step/Comment
-- 
+- Image Upload
+- RouteGuards on BE/FE
+
+
+## Backlog
+
+- Implement Nodemailer 
+- DragNDrop for Steps
+- Customized 404 Page
+
+## Tech Stack
+
+- FrontEnd: React, Bootstrap
+- BackEnd: NodeJS,Express,MongoDB
+
+
+## Links
+
+- [Trello Link](https://trello.com/b/AvS3JpAn/prankster)
+- [Github Repo Client](https://github.com/david-e-productions/pranks-app-client)
+- [Github Repo Server](https://github.com/david-e-productions/pranks-app-server)
+- [Deployment Link](https://pranklicious.netlify.app)
