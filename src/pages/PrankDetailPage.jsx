@@ -25,12 +25,19 @@ function PrankDetailPage() {
   }, [prankId]);
 
   return (
-    <>
+    <div
+    className={"lightblue-bg pink-font"}
+    style={{minHeight:'90vh'}}
+    >
       {prank && (
-        <div className={"lightblue-bg pink-font"}>
+        <div 
+        // className={"lightblue-bg pink-font"}
+        >
 
           <Row className={"p-0"}>
-            <Col md={6} className={"lightblue-bg pink-font"}>
+            <Col md={6} 
+            // className={"lightblue-bg pink-font"}
+            >
 
               <PrankCard
                 key={prank._id}
@@ -74,7 +81,7 @@ function PrankDetailPage() {
           </Row>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
