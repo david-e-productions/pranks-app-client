@@ -421,3 +421,80 @@
 #bootstrap-overrides .row {
   --bs-gutter-x: 0;
 }
+
+
+/* Media Query for Imgs on All-Pranks-Page */
+
+@media (min-width: 100px) {
+  #bootstrap-overrides .imgDesktop {
+    display:none
+
+  }
+
+  #bootstrap-overrides .imageMobile {
+    width:100%;
+
+  }
+}
+
+@media (min-width: 650px) {
+  #bootstrap-overrides .imgDesktop {
+    display:none;
+    width:5px;
+     position: absolute; top: 30%; left: 45%
+
+
+  }
+  #bootstrap-overrides .imageMobile {
+    max-width:100%;
+    /* max-height: 200px; */
+    overflow: hidden;
+
+  }
+}
+
+@media (min-width: 768px) {
+  #bootstrap-overrides .imgDesktop {
+    display:none;
+    width:350px;
+     position: absolute; top: 30%; left: 53%
+
+
+  }
+  #bootstrap-overrides .imageMobile {
+    max-width:100%;
+    /* max-height: 200px; */
+    overflow: hidden;
+
+  }
+}
+
+@media (min-width: 992px) {
+  #bootstrap-overrides .imgDesktop {
+    display:inline;
+    width:500px;
+     position: absolute; top: 40%; left: 50%
+
+
+  }
+  #bootstrap-overrides .imageMobile {
+    display:none;
+    
+  }
+}
+
+@media (min-width: 1200px) {
+  #bootstrap-overrides .imgDesktop {
+        display:inline;
+        width:600px;
+         position: absolute; top: 30%; left: 45%
+
+
+  }
+
+  #bootstrap-overrides .imageMobile {
+    display:none;
+    
+  }
+}
+
