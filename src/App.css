@@ -452,7 +452,7 @@
   #bootstrap-overrides .imgDesktop {
     display:none;
     width:5px;
-     position: absolute; top: 30%; left: 45%
+    position: absolute; top: 30%; left: 45%
 
 
   }
@@ -468,7 +468,9 @@
   #bootstrap-overrides .imgDesktop {
     display:none;
     width:350px;
+
      position: fixed; top: 20%; left: 50%
+
 
 
   }
@@ -484,7 +486,9 @@
   #bootstrap-overrides .imgDesktop {
     display:inline;
     width:500px;
+
      position: fixed; top: 20%; left: 50%
+
 
   }
   #bootstrap-overrides .imageMobile {
@@ -497,7 +501,9 @@
   #bootstrap-overrides .imgDesktop {
         display:inline;
         width:600px;
+
          position: fixed; top: 20%; left: 50%
+
 
 
   }
@@ -508,3 +514,24 @@
   }
 }
 
+.image-imput {
+  color: #ed64b6;
+  background-color: #018ff5;
+  border-radius: 20px;
+  font-weight: bold;
+  padding: 5px;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  font-size: 16px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+  width: 350px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.image-imput:hover {
+  background-color: #ffe600;
+  color: #159400;
+}
