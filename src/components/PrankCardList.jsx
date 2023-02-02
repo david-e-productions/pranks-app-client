@@ -8,6 +8,10 @@ function PrankCardList(props) {
   return (
     <div className="PrankCard">       
       <Link  style={{ textDecoration: "none" }} to={`/pranks/${_id}`}>
+      {imageUrl && (
+        <img className="imageMobile" src={imageUrl} alt={title}></img>
+
+      )}
       <div >
       <h1
       className="t-s p-t-20"

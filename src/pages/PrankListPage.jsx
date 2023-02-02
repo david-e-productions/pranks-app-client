@@ -33,17 +33,20 @@ function PrankListPage() {
           <h1 className="p-0 m-b-20 m-t-10 t">All Pranks:</h1>
           {pranks.map((prank) => {
             return (
+              <>
+              
               <PrankCardList
                 key={prank._id}
                 {...prank}
                 handleHover={handleHover}
               />
+              </>
+             
             );
           })}
         </Col>
         <Col className="p-0" md={6}>
-          {selectedId && <img style={ {position: 'absolute', top: '30%', left: '45%'
-}}src={selectedId} alt="pranks"></img>}
+          {selectedId && <img className='imgDesktop' style={ { }}src={selectedId} alt="pranks"></img>}
         </Col>
       </Row>
     </>
