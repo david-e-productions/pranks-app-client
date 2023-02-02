@@ -468,7 +468,7 @@
   #bootstrap-overrides .imgDesktop {
     display:none;
     width:350px;
-     position: absolute; top: 30%; left: 53%
+     position: fixed; top: 20%; left: 50%
 
 
   }
@@ -484,8 +484,7 @@
   #bootstrap-overrides .imgDesktop {
     display:inline;
     width:500px;
-     position: absolute; top: 40%; left: 50%
-
+     position: fixed; top: 20%; left: 50%
 
   }
   #bootstrap-overrides .imageMobile {
@@ -498,7 +497,7 @@
   #bootstrap-overrides .imgDesktop {
         display:inline;
         width:600px;
-         position: absolute; top: 30%; left: 45%
+         position: fixed; top: 20%; left: 50%
 
 
   }
