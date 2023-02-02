@@ -42,8 +42,13 @@ function PrankListPage() {
           })}
         </Col>
         <Col className="p-0" md={6}>
-          {selectedId && <img style={ {position: 'absolute', top: '30%', left: '45%'
-}}src={selectedId} alt="pranks"></img>}
+          {selectedId && (
+            <img
+              style={{ position: "absolute", top: "30%", left: "45%" }}
+              src={selectedId}
+              alt="pranks"
+            ></img>
+          )}
         </Col>
       </Row>
     </>

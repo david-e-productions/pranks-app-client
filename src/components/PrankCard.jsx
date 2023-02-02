@@ -30,13 +30,8 @@ function PrankCard(props) {
   return (
     <>
       {!editMode && !addStepMode && (
-        <div
-          style={{
-            backgroundImage: "linear-gradient(  #ed64b6 ,#018ff5)",
-            height: "100vh",
-          }}
-        >
-          <h1 className={"m-t-20"}>{title}</h1>
+        <div>
+          <h1 className={"m-t-20 t"}>{title}</h1>
 
           {imageUrl && (
             <>

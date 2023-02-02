@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Nabla&display=swap");
 
-.b-g {
+/* .b-g {
   background-image: linear-gradient(#ed64b6 ,#018ff5);
   height: 100%,
-}
+} */
 
 .navbar {
   background-color: #ed64b6;
@@ -420,4 +420,14 @@
 
 #bootstrap-overrides .row {
   --bs-gutter-x: 0;
+}
+
+.ts {
+  background-color: #ffe600;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.ts:hover{
+  text-shadow: 0px 5px 7px rgba(0, 0, 0, 1);
 }
