@@ -5,7 +5,9 @@ function PrankCardList(props) {
   return (
     <div className="PrankCard">
       <Link style={{ textDecoration: "none" }} to={`/pranks/${_id}`}>
-        <h1 style={{ fontSize: "40px" }}>{title}</h1>
+        <h1 className="t-s p-t-20" style={{ fontSize: "40px" }}>
+          {title}
+        </h1>
       </Link>
       <p className="prankCardDetailCard m-b-20">{description}</p>
     </div>

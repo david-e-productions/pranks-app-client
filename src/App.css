@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Nabla&display=swap");
 
+.b-g {
+  background-image: linear-gradient(#ed64b6 ,#018ff5);
+  height: 100%,
+}
+
 .navbar {
   background-color: #ed64b6;
 }
@@ -399,4 +404,16 @@
 
 .imgDetailPage {
   width: 100%;
+}
+
+.t-s{
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.t-s:hover {
+  text-shadow: 0 10px 15px rgba(0, 0, 0, 0.7);
+}
+
+.t{
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }

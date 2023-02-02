@@ -37,7 +37,7 @@ function EditStepCard(prop) {
 
   return (
     <>
-      <h1 className="m-t-20" style={{ fontSize: "50px" }}>
+      <h1 className="p-t-20" style={{ fontSize: "50px" }}>
         Edit Step
       </h1>
       <form
