@@ -32,13 +32,11 @@ function PrankCard(props) {
       {!editMode && !addStepMode && (
         <div>
           <h1 className={"m-t-20 t"}>{title}</h1>
-
           {imageUrl && (
             <>
               <img className="imgDetailPage" src={imageUrl} alt={title}></img>
             </>
           )}
-
           <div style={{ margin: "30px 0" }}>
             <p className={"form-label-blue"}>When and Where:</p>
             <p className={"m-b-20 prankCardDetailCard"}>{renderDate()}</p>

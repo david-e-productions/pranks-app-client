@@ -58,6 +58,7 @@ function AddPrankPage() {
 
   return (
     <div className="lightblue-bg p-0" style={{ height: "100vh" }}>
+      <h1 className="p-0 m-b-20 p-t-10 t">Add your prank!</h1>
       <form onSubmit={handleSubmit}>
         <label className={"form-label-blue"}>Title: </label>
         <input
@@ -87,15 +88,18 @@ function AddPrankPage() {
           value={prankee}
           onChange={(e) => setPrankee(e.target.value)}
         />
-        <label className={"form-label-blue"}>Choose an image: </label>
-        <label for="file-input">
-          <input
-            className="m-b-20 input-yellow ts"
-            type="file"
-            onChange={(e) => handleFileUpload(e)}
-          />
+        <label
+          htmlFor="file-input"
+          onClick={(e) => {
+            handleFileUpload(e);
+          }}
+          className={"image-imput"}
+        >
+          Click here to choose an image
         </label>
-
+        <label>
+          <input id="file-input" style={{ display: "none" }} type="file" />
+        </label>
         <label className={"form-label-blue"}>Description: </label>
         <textarea
           className={"input-yellow m-b-20"}

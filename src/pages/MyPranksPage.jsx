@@ -27,17 +27,19 @@ function MyPranksPage() {
   }, [user]);
 
   return (
-
-    <div className="lightblue-bg p-0" style={{ height: "100vh",backgroundImage: "linear-gradient( #ed64b6, #018ff5 )" }}>
-
-
+    <div
+      className="lightblue-bg p-0"
+      style={{
+        height: "100vh",
+        backgroundImage: "linear-gradient( #ed64b6, #018ff5 )",
+      }}
+    >
+      <h1 className="p-0 m-b-20 p-t-10 t">My pranks</h1>
       {pranks &&
         pranks.map((prank) => {
-          console.log(prank)
+          console.log(prank);
           return (
-            <div
-
-            >
+            <div>
               <PrankCardList key={prank._id} {...prank} />
             </div>
           );

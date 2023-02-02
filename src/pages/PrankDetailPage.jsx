@@ -27,21 +27,15 @@ function PrankDetailPage() {
   return (
     <div className={"lightblue-bg"} style={{ minHeight: "90vh" }}>
       {prank && (
-        <div
-        // className={"lightblue-bg pink-font"}
-        >
+        <div>
           <Row className={"p-0"}>
-            <Col
-              md={6}
-              // className={"lightblue-bg pink-font"}
-            >
+            <Col md={6}>
               <PrankCard
                 key={prank._id}
                 element={prank}
                 refreshPrank={getPrank}
               />
             </Col>
-
             <Col md={6} className="p-0">
               {prank.steps.length === 0 && (
                 <h1 className="p-t-20">No Steps added yet</h1>
