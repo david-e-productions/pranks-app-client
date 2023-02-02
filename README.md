@@ -2,7 +2,7 @@
 
 ![Getting Started](./public/landingPageImg.png)
 
-[Click here to see deployed game](https://pranklicious.netlify.app)
+[Click here to see deployed website](https://pranklicious.netlify.app)
 
 
 ## Description
