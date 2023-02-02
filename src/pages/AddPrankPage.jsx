@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useContext } from "react";
-import { alignPropType } from "react-bootstrap/esm/types";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import service from "../api/service";

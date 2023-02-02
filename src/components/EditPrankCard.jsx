@@ -1,12 +1,29 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import service from "../api/service";
+
 
 function EditPrankCard(props) {
   const [tempPrank, setTempPrank] = useState();
   const navigate = useNavigate();
+  const [imageUrl, setImageUrl] = useState("");
+
 
   const { prankId } = useParams();
+
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    service
+      .uploadImage(uploadData)
+      .then((response) => {
+        setImageUrl(response.fileUrl);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
 
   const handleDeleteSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +56,7 @@ function EditPrankCard(props) {
     e.preventDefault();
 
     const { title, time, place, prankee, description } = tempPrank;
-    const reqBody = { title, time, place, prankee, description };
+    const reqBody = { title, time, place, prankee, imageUrl, description };
 
     axios
       .put(`${process.env.REACT_APP_API_URL}/api/prank/${prankId}`, reqBody, {
@@ -98,6 +115,8 @@ function EditPrankCard(props) {
             />
             <br />
             <label className={"form-label-blue"}>Description:</label>
+        <input type="file" onChange={(e) => handleFileUpload(e)} />
+
             <textarea
               className={"input-yellow"}
               value={tempPrank.description}
