@@ -8,6 +8,10 @@ function PrankCardList(props) {
     <div>
       <Link style={{ textDecoration: "none" }} to={`/pranks/${_id}`}>
         <div>
+        {imageUrl && (
+        <img className="imageMobile" src={imageUrl} alt={title}></img>
+
+      )}
           <h1
             className="t-s p-t-20"
             onMouseEnter={handleHover}
